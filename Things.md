@@ -101,7 +101,7 @@ FSM.setMidYObj(thing, otherThing);
 // Slides a Thing to x position 10, moving a max distance of 5. 
 FSM.slideToX(thing, 10, 5);
 
-// Slidies a Thing to y position 10, moving a max distance of 5. 
+// Slides a Thing to y position 10, moving a max distance of 5. 
 FSM.slideToY(thing, 10, 5);
 ```
 
