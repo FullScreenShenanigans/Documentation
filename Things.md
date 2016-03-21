@@ -10,6 +10,7 @@ All the following code samples are written specific to `FSM` (FullScreenMario) b
     2. [Opacity](#opacity)
 3. [Adding Things](#adding-things)
 4. [TimeHandlr](#timehandlr)
+5. [Thing Classes](#thing-classes)
 
 # GroupHoldr  
 
@@ -170,3 +171,11 @@ FSM.addEventInterval(FSM.shiftHoriz, 100, 5, thing, 2);
 ```
 
 More can be read about TimeHandlr on its [Readme](https://github.com/FullScreenShenanigans/TimeHandlr/blob/master/README.md).
+
+# Thing classes
+
+Classes are generated using [ObjectMakr](https://github.com/FullScreenShenanigans/ObjectMakr), a module that dynamically generates the inheritance structure of classes. It takes in the structure and a list of properties and the class objects are then constructed using this information. 
+
+When a FullScreenShenanigans game starts up, ObjectMakr receives the inheritance structure and properties list from an `objects.js` file. It then generates prototypes for all of the internal classes (Box, Tree, etc.). Most of the basic properties, like `height`, `width`, and `opacity` are defined in the parent Thing class. ObjectMakr's `addThing` is a shortcut to initializing a new instance of a Thing class and assigning properties to it in one step. 
+
+More can be read about ObjectMakr on its [ReadMe](https://github.com/FullScreenShenanigans/ObjectMakr/blob/master/README.md).
