@@ -11,6 +11,8 @@ All the following code samples are written specific to `FSM` (FullScreenMario) b
 3. [Adding Things](#adding-things)
 4. [TimeHandlr](#timehandlr)
 5. [Thing Classes](#thing-classes)
+6. [Sprites](#sprites)
+    1. [Sprite Cycles and Movement](#sprite-cycles-and-movement)
 
 # GroupHoldr  
 
@@ -179,3 +181,27 @@ Classes are generated using [ObjectMakr](https://github.com/FullScreenShenanigan
 When a FullScreenShenanigans game starts up, ObjectMakr receives the inheritance structure and properties list from an `objects.js` file. It then generates prototypes for all of the internal classes (Box, Tree, etc.). Most of the basic properties, like `height`, `width`, and `opacity` are defined in the parent Thing class. ObjectMakr's `addThing` is a shortcut to initializing a new instance of a Thing class and assigning properties to it in one step. 
 
 More can be read about ObjectMakr on its [ReadMe](https://github.com/FullScreenShenanigans/ObjectMakr/blob/master/README.md).
+
+# Sprites
+
+Sprites comprise any visual you see in a FullScreenShenanigans game. They are stored as string representations of an image, containing information about every pixel. The game generates the image from this string in real-time.
+
+More can be read about sprites on [PixelDrawer's](https://github.com/FullScreenShenanigans/PixelDrawr/blob/master/README.md) and [PixelRendr's](https://github.com/FullScreenShenanigans/PixelRendr/blob/master/README.md) ReadMe's.
+
+Each Thing class has a set of sprites relevant to it, usually different views (facing forward, to the left, etc.). The game selects which sprite to use based on the Thing's full class nomenclature (i.e. if the Player is facing left, its class could be "Player left").
+
+## Sprite Cycles and Movement
+
+A sprite cycle is a timed change in a Thing's class handled by TimeHandlr. This is represented by a cycling through of selected sprites, where each phase lasts a specified time interval. 
+
+Sprite cycles are often used to simulate movement. For example, you can show a character walking by adding a cycle between the walking and standing sprites.
+
+```javascript
+// Adds a walking/standing cycle to a Thing, cycling every 100 game ticks.
+// "Moving" is the name of the cycle, to be referenced in the thing's .cycles property.
+FSM.TimeHandler.addClassCycle(
+    thing,
+    ["walking", "standing"],
+    "moving",
+    100);
+```
