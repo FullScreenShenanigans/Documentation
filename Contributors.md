@@ -1,11 +1,55 @@
 # Contributors
 
-Since FullScreenMario's initial release in 2013, many people and groups have contributed to the project, from bug reports to major feature additions. If your name is missing from the list please send an email to [josh@fullscreenmario.com](mailto:josh@fullscreenmario.com).
+Since FullScreenMario's initial release in 2013, many people and groups have contributed to FullScreenShenanigans, from bug reports to major feature additions. If your name is missing from the list please send an email to [josh@fullscreenmario.com](mailto:josh@fullscreenmario.com).
 
 Names are sorted within groups by last name. Groups are in order of commit magnitude.
 
 #### [Josh Goldberg](http://github.com/JoshuaKGoldberg)
 * Project lead
+
+### [RCOS](https://rcos.io/projects/JoshuaKGoldberg/FullScreenPokemon/profile) RPI Students
+
+* [Blake Lingenau](https://github.com/blingenau)
+    * February 2016:
+        * [Added FSP function documentation](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/136)
+        * [Removed ensureCorrectCaller from FSP](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/148)
+        * [Bicycle/cycling](https://github.com/FullScreenShenanigans/FullScreenPokemon/pulls?utf8=%E2%9C%93&q=is%3Apr+is%3Aclosed+author%3Ablingenau+cycling)
+    * March 2016:
+        * [Special items](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/184)
+        * Tutorials: [Things](is:pr is:closed things things author:blingenau created:<=2016-03-28), [Maps](https://github.com/FullScreenShenanigans/Documentation/pull/10)
+    * April 2016:
+        * Mods: [Speedrunner](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/238), [Joey's Rattata](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/246), [Blind trainers](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/253)
+    * May 2016:
+        * Mods: [Repeat trainers](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/262), [Scaling levels](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/265)
+        * [Bug fix for scaling large health bars](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/267)
+
+* [George Tsitsopoulos](https://github.com/tsitsop)
+    * February 2016:
+        * [Added FSP function documentation](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/147)
+        * [Cut](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/177), [Strength](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/185)
+    * March 2016:
+        * Tutorial: [Build processes](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/185)
+        * [Surf](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/190)
+    * April 2016:
+        * [Fly](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/196)
+        * [From `var` to `let` in FSP](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/224)
+        * [Fishing](https://github.com/FullScreenShenanigans/FullScreenPokemon/pulls?utf8=%E2%9C%93&q=is%3Apr+is%3Aclosed+author%3Atsitsop+fishing)
+        * [Gym badges](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/234)
+        * Mods: [Level 100 Pokemon](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/239), [Walking through walls](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/250)
+    * May 2016:
+        * Mods: [Nuzlocke Challenge](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/256), [Infinite Repel](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/260)
+
+### RPI Students
+
+* [Joe Pringle](https://github.com/joechip504)
+    * March 2015:
+        * [Supported MapsHandlr expansion](https://github.com/FullScreenShenanigans/FullScreenPokemon/commits?author=joechip504)
+        * [Prototyped LibGME AudioPlayr replacement](https://github.com/FullScreenShenanigans/FullScreenPokemon/commits/master?author=joechip504)
+        * [Support for oddly named Pokemon](https://github.com/FullScreenShenanigans/FullScreenPokemon/commit/87909ceafb8f53d61e5b93889d5fd09ca2cd8894)
+        * [Scraped item information](https://github.com/FullScreenShenanigans/FullScreenPokemon/commit/738aa73e09cb3cd04a25873186168f037bf735ad)
+        * Bug fixes: [Squirtle popup](https://github.com/FullScreenShenanigans/FullScreenPokemon/commit/49b432bce3f570e520c0844172eba44b0be57f7e), [Charmander starter steps](https://github.com/FullScreenShenanigans/FullScreenPokemon/commit/418d06a87962a1004092f0107f7e6b19477d704e), [cutsceneIntroFinish next map](https://github.com/FullScreenShenanigans/FullScreenPokemon/commit/dd0049641b27570541d08d0a92f789dbddba6c0f)
+    * Freburary 2015:
+        * Bug fixes: [Viridian City spawn offset](https://github.com/FullScreenShenanigans/FullScreenPokemon/commit/3ed0017bb05a1d2295e5cdb4522ec3a1decced70), [spawnedBy timestamps](https://github.com/FullScreenShenanigans/FullScreenPokemon/commit/68a82fa6e5e420d92c64d593f91764976b292471)
 
 
 ### Feature Adders
@@ -28,9 +72,6 @@ Names are sorted within groups by last name. Groups are in order of commit magni
     * November 2013: [Renamed `mario` to `player`](https://github.com/JoshuaKGoldberg/Old-Deleted-FullScreenMario/commits?author=aamistak)
     * November 2013: [Added Luigi as sprite option](https://github.com/JoshuaKGoldberg/Old-Deleted-FullScreenMario/commits?author=aamistak)
     * November 2013: [Bug fix for numFire as int/string](https://github.com/JoshuaKGoldberg/Old-Deleted-FullScreenMario/commit/4524bbc6c2122fd010d0ab43c9c3ea1beac6ccd4)
-
-* [Joe Pringle](https://github.com/joechip504/)
-    * March 2015: [Supported MapsHandlr expansion](https://github.com/FullScreenShenanigans/FullScreenPokemon/commits?author=joechip504)
 
 * [Umigatsu](https://github.com/Umigatsu)
     * February 2014: [Added initial key mappings menu](https://github.com/JoshuaKGoldberg/Old-Deleted-FullScreenMario/commits?author=Umigatsu)
