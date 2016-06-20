@@ -7,7 +7,7 @@ This is a general guide about Mods for all FullScreenShenanigans projects. This 
 
 ModAttachr is a module that allows for extensible triggered mod events.
 
-A mod is a custom modification that changes how the game normally runs and/or how the player interacts with the game. Each mod defines several events to run when they are fired off in the game. When an event is fired in the game, ModAttachr goes through all the enabled mods that have a defined event under that name. An event can also be triggered for a specific mod.
+A mod is a custom modification that changes how the game normally runs and/or how the player interacts with the game. Each mod defines several events to run when they are fired off in the game. When an event is fired in the game, ModAttachr goes through all the enabled mods that have a defined event under that name. An event can also be triggered for only a specific mod.
 
 When a mod is added, it is added to the pool of mods and is added to the respective events. A mod can be added with `addMod`.
 
