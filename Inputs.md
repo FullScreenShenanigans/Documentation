@@ -35,4 +35,18 @@ A history is saved so as to be able to play back event information by simulating
 }
 ```
 
+Aliases can be added and removed using `addAliasValues` and `removeAliasValues` respectively.
+
+```typescript
+InputWritr.addAliasValues("left", [30, 34, 35]);
+InputWritr.removeAliasValues("left", [30, 34, 35]);
+```
+
+Events can be added and removed using `addEvent` and `removeEvent`
+
+```typescript
+InputWritr.addEvent("onKeyDown", 39, keyDownRightFunction);
+InputWritr.removeEvent("onKeyDown", 39);
+```
+
 More can be read about InputWritr on its [Readme](https://github.com/FullScreenShenanigans/InputWritr/blob/master/README.md).
