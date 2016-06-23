@@ -6,20 +6,20 @@ This guide will describe how inputs from the user (keyboard, mouse, etc.) are ro
 
 # InputWritr
 
-InputWritr is a module that automates interactions with user-called events and callbacks. 
+InputWritr is a module that automates interactions with user inputs and events. 
 
-Events are in game responses to user input.
+Events are the game's responses to user input.
 They allow the user to take control of some part of the game or have interaction with it.
 Events can be added and removed using `addEvent` and `removeEvent`.
 
 ```typescript
-InputWritr.addEvent("onKeyDown", 39, keyDownRightFunction);
-InputWritr.removeEvent("onKeyDown", 39);
+InputWritr.addEvent("onKeyDown", 37, keyDownRightFunction);
+InputWritr.removeEvent("onKeyDown", 37);
 ```
 
-Triggers are what allow the user to trip events.
-They are the user inputs that get mapped to the events.
-They are stored as both character codes (e.g. 37) and string representation of their inputs (e.g. "left").
+Triggers are what allow the user to cause events.
+They are user inputs that get mapped to the events.
+They are stored as both character codes (e.g. 37) and as a string representation of their inputs (e.g. "left").
 Events can be triggered by any number of inputs.
 
 Aliases are additional inputs that allow for an event to be triggered from multiple user sources.
@@ -59,8 +59,9 @@ InputWritr.removeAliasValues("left", [30, 34, 35]);
 }
 ```
 
+The module saves a history of the events run with a timestamp.
 A history is saved so its possible to play back event information by simulating keystrokes.
-The timestamp indicates when events happen which allows for proper delay between events.
+The timestamp indicates when events happen which makes for proper delay between events.
 
 More can be read about InputWritr on its [Readme](https://github.com/FullScreenShenanigans/InputWritr/blob/master/README.md).
 
