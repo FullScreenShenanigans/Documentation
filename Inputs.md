@@ -8,10 +8,27 @@ This guide will describe how inputs from the user (keyboard, mouse, etc.) are ro
 
 InputWritr is a module that automates interactions with user-called events and callbacks. 
 
-The module stores triggers, aliases for triggers, and a history of records of actions (i.e. keystrokes) with a timestamp.
-A trigger is a mapping of events to their key codes, to their callbacks.
+Events are in game responses to user input.
+They allow the user to take control of some part of the game or have interaction with it.
+Events can be added and removed using `addEvent` and `removeEvent`.
+
+```typescript
+InputWritr.addEvent("onKeyDown", 39, keyDownRightFunction);
+InputWritr.removeEvent("onKeyDown", 39);
+```
+
+Triggers are what allow the user to trip events.
+They are the user inputs that get mapped to the events.
+They are stored as both character codes (e.g. 37) and string representation of their inputs (e.g. "left").
 Events can be triggered by any number of inputs.
-A history is saved so as to be able to play back event information by simulating keystrokes.
+
+Aliases are additional inputs that allow for an event to be triggered from multiple user sources.
+They can be added and removed using `addAliasValues` and `removeAliasValues`.
+
+```typescript
+InputWritr.addAliasValues("left", [30, 34, 35]);
+InputWritr.removeAliasValues("left", [30, 34, 35]);
+```
 
 ```typescript
 {
@@ -20,28 +37,18 @@ A history is saved so as to be able to play back event information by simulating
     },
     "triggers": {
         "onkeydown": {
-            "left": function (player: IPlayer, event?: IEvent): void {
-                if (!player.canWalk) {
-                    return;
-                }
+            "left": function (event?: IEvent): void {
+                console.log("left button was pressed");
 
-                this.TimeHandler.addEvent(
-                    player.FSP.keyDownDirectionReal,
-                    this.inputDelay,
-                    player,
-                    3);
-                
-                this.ModAttacher.fireEvent("onKeyDownLeft");
+                // to prevent browser default events
+                if (event && event.preventDefault) {
+                    event.preventDefault();
+                }
             }
         },
         "onkeyup": {
-            "left": function (player: IPlayer, event?: IEvent): void {
-                this.ModAttacher.fireEvent("onKeyUpLeft");
-
-                (<IPlayer>thing).keys[3] = false;
-                if (player.nextDirection === 3) {
-                    delete player.nextDirection;
-                }
+            "left": function (event?: IEvent): void {
+                console.log("left button was released");
 
                 if (event && event.preventDefault) {
                     event.preventDefault();
@@ -52,20 +59,8 @@ A history is saved so as to be able to play back event information by simulating
 }
 ```
 
-Aliases are additional inputs that allow for an event to be triggered from multiple user actions.
-They can be added and removed using `addAliasValues` and `removeAliasValues` respectively.
-
-```typescript
-InputWritr.addAliasValues("left", [30, 34, 35]);
-InputWritr.removeAliasValues("left", [30, 34, 35]);
-```
-
-Events can be added and removed using `addEvent` and `removeEvent`.
-
-```typescript
-InputWritr.addEvent("onKeyDown", 39, keyDownRightFunction);
-InputWritr.removeEvent("onKeyDown", 39);
-```
+A history is saved so its possible to play back event information by simulating keystrokes.
+The timestamp indicates when events happen which allows for proper delay between events.
 
 More can be read about InputWritr on its [Readme](https://github.com/FullScreenShenanigans/InputWritr/blob/master/README.md).
 
@@ -76,8 +71,8 @@ DeviceLayr is a module for GamePad API bindings which allow for the use of devic
 DeviceLayr has its own input and trigger mappings in addition to the mappings for InputWritr.
 Connected devices are detected and registered with `checkNavigatorGamepads`.
 The inputs for gamepads are joystick tilts and button presses.
+If a trigger was activated by the user, `activateAllGamePadTriggers` calls the equivalent InputWritr event. 
 Aliases for gamepad triggers are binary signals for whether an active change was made to the state of the gamepad (e.g. pressing a button as opposed to releasing).
-If a trigger was made to an axis or a button, `activateAllGamePadTriggers` calls the equivalent InputWritr event. 
 
 
 More can be read about DeviceLayr on its [Readme](https://github.com/FullScreenShenanigans/DeviceLayr/blob/master/README.md).
