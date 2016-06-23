@@ -70,10 +70,14 @@ More can be read about InputWritr on its [Readme](https://github.com/FullScreenS
 DeviceLayr is a module for GamePad API bindings which allow for the use of devices like controllers.
 
 DeviceLayr has its own input and trigger mappings in addition to the mappings for InputWritr.
-Connected devices are detected and registered with `checkNavigatorGamepads`.
-The inputs for gamepads are joystick tilts and button presses.
-If a trigger was activated by the user, `activateAllGamePadTriggers` calls the equivalent InputWritr event. 
-Aliases for gamepad triggers are binary signals for whether an active change was made to the state of the gamepad (e.g. pressing a button as opposed to releasing).
+Connected devices are detected and registered with `checkNavigatorGamepads` which adds them to the list of added gamepads.
 
+The inputs for gamepads are joystick, buttons, and controller triggers.
+Joysticks have an x and y axis, which have a negative, netural, and positive status.
+These statuses signal which direction the joystick is being tilted.
+
+Aliases for gamepad triggers are binary signals for whether an active change was made to the status of the gamepad (e.g. pressing a button versus releasing).
+
+If the user changes the status of a joystick or button, `activateAllGamePadTriggers` calls the equivalent InputWritr event. 
 
 More can be read about DeviceLayr on its [Readme](https://github.com/FullScreenShenanigans/DeviceLayr/blob/master/README.md).
