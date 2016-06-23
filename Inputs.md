@@ -15,13 +15,10 @@ InputWritr is a module that automates interactions with user inputs and events.
 Inputs are stored as both character codes (e.g. 37) and as a string representation of themselves (e.g. "left").
 Triggers are what tie inputs with events and are specific actions on the inputs (e.g. press).
 
-Events are the game's responses to user input.
 Events can be added using `addEvent` which takes in a trigger name, key code, and the function to run when the event is triggered.
 
 ```typescript
-InputWritr.addEvent("onKeyDown", 37, function (): void {
-    console.log("left button pressed");
-});
+InputWritr.addEvent("onKeyDown", 37, () => { console.log("left button pressed"); });
 ```
 
 ...and are removed with `removeEvent` which takes in the trigger and key code.
