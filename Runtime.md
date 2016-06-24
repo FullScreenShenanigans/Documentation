@@ -2,7 +2,7 @@ This guide will describe how GamesRunnr runs upkeep functions and how FSPAnalyze
 
 ### Table of Contents
 1. [GamesRunnr](#gamesrunnr)
-    1. [Games and Upkeep](#games-and-upkeep)
+    1. [Upkeep](#games-and-upkeep)
     2. [Interval and Speed](#interval-and-speed)
     3. [Pause and Play](#pause-and-play)
 2. [FPSAnalyzer](#fpsanalyzer)
@@ -15,15 +15,13 @@ GamesRunnr is a module for running a series of callbacks grouped into one interv
 These callbacks deal with maintaining the state of the game, like having a callback to redraw the canvas.
 These callbacks separately are referred to as games.
 
-## Games and Upkeep
+## Upkeep
 
-`upkeep` is the biggest part of GamesRunnr.
-This function runs all the stored games.
-
+`upkeep` is a function that runs each game once.
 `upkeepTimed` is a utility function for `upkeep` that times and returns the amount of time it takes to run all the games.
 
 ```typescript
-let totalTime: number = GamesRunnr.upkeepTimed();
+let totalTime: number = GamesRunner.upkeepTimed();
 console.log(`It took `${totalTime}` ms.`);
 ```
 
@@ -33,10 +31,10 @@ Each call of `upkeep` has a set time delay, in milliseconds, before it can be ca
 To set the interval use `setInterval`.
 
 ```typescript
-GamesRunnr.setInterval(20);
+GamesRunner.setInterval(20);
 ```
 
-`speed` is a variable which represents the playback speed of the intervals, such as a speed of 2 makes the intervals go by twice as fast.
+`speed` is a variable which represents the playback speed of the intervals, for example a speed of 2 makes the intervals go by twice as fast.
 To set the value, use `setSpeed`.
 
 ```typescript
@@ -46,16 +44,16 @@ GamesRunner.setSpeed(2);
 ## Pause and Play
 
 GamesRunnr can pause and continue `upkeep` execution.
-`pause` stops the execution of `upkeep` and cancels the next call with `upkeepCanceller`.
+`pause` stops the execution of `upkeep` and cancels the next call of upkeep.
 
 ```typescript
-GamesRunnr.pause();
+GamesRunner.pause();
 ```
 
 `play` continues execution of `upkeep` by calling it.
 
 ```typescript
-GamesRunnr.play();
+GamesRunner.play();
 ```
 
 Both `pause` and `play` allow for trigger functions to run when they are called by defining `onPause` and `onPlay`.
@@ -73,7 +71,7 @@ GamesRunner.play();
 To toggle between the two, use `togglePause`.
 
 ```typescript
-GamesRunnr.togglePause();
+GamesRunner.togglePause();
 ```
 
 More can be read on GamesRunnr on its [Readme](https://github.com/FullScreenShenanigans/GamesRunnr/blob/master/README.md).
@@ -84,48 +82,31 @@ More can be read on GamesRunnr on its [Readme](https://github.com/FullScreenShen
 
 FSPAnalyzr is a module for recording and analyzing framerate measurements.
 
-The main function for the module is `measure` and is run at the end of every `upkeep` call.
+`measure` and is run at the end of every `upkeep` call.
 
 ```typescript
-FPSAnalyzr.measure();
+FPSAnalyzer.measure();
 ```
 
 It updates the value for the current timestamp and if there was a previous timestamp recorded, it adds an FPS measurement to the list of recorded measurements with `addFPS`.
 
 ```typescript
-FPSAnalyzr.addFPS(40);
+FPSAnalyzer.addFPS(40);
 ```
-
-The module records up to `maxKept` number of measurements.
 
 ## Getters
 
-FPSAnalyzr has a number of getter functions that return statistics and information on the recorded measurements.
+FPSAnalyzer has a number of getter functions that return statistics and information on the recorded measurements.
 
 ```typescript
-// returns the number of allotted measurements
-let max: number = FSPAnalyzr.getMaxKept();
-
-// returns the number of measurements currently recorded
-let num: number = FSPAnalyzr.getNumRecorded();
-
-// returns the currently recorded timestamp
-let current: number = FPSAnalyzr.getTimeCurrent();
-
-// returns the current position in measurements
-let position: number = FSPAnalyzr.getTicker();
-
-// returns the recorded measurements
-let measurements: number[] = FPSAnalyzr.getMeasurements();
-
-// returns the measurements as time differences
-let differences: number[] = FPSAnalyzr.getDifferences();
-
-// returns the average, median, extremes, and range of the recorded FPS measurements
-let average: number = FPSAnalyzr.getAverage();
-let median: number = FPSAnalyzr.getMedian();
-let extremes: number[] = FPSAnalyzr.getExtremes();
-let range: number = FPSAnalyzr.getRange();
+FSPAnalyzer.getNumRecorded();
+FSPAnalyzer.getTicker();
+FPSAnalyzer.getMeasurements();
+FPSAnalyzer.getDifferences();
+FPSAnalyzer.getAverage();
+FPSAnalyzer.getMedian();
+FPSAnalyzer.getExtremes();
+FPSAnalyzer.getRange();
 ```
 
 More can be read on FPSAnalyzr on its [Readme](https://github.com/FullScreenShenanigans/FPSAnalyzr/blob/master/README.md).
