@@ -56,7 +56,7 @@ To run events, use `callEvent` and `makePipe`.
 `makePipe`  takes in a trigger and code label to get the alias from the event and returns a function to run the triggered event.
 
 ```typescript
-let leftKeyPipe: () => void = InputWritr.makePipe("onKeyDown", "left", true);
+let leftKeyPipe: () => void = InputWritr.makePipe("onKeyDown", "left");
 leftKeyPipe();
 ```
 
@@ -87,16 +87,16 @@ These statuses signal which direction the joystick is being tilted.
 
 Aliases for gamepad triggers are binary signals for whether an active change was made to the status of the gamepad (e.g. pressing a button versus releasing).
 
-`activateAllGamePadTriggers` checks the status of all registered gamepads and calls the equivalent InputWritr event if any triggers have occurred.
+`activateAllGamepadTriggers` checks the status of all registered gamepads and calls the equivalent InputWritr event if any triggers have occurred.
 
 ```typescript
-DeviceLayr.activateAllGamePadTriggers();
+DeviceLayr.activateAllGamepadTriggers();
 ``` 
 
-To clear the status of all joysticks and buttons, use `clearAllGamePadTriggers`.
+To clear the status of all joysticks and buttons, use `clearAllGamepadTriggers`.
 
 ```typescript
-DeviceLayr.clearAllGamePadTriggers();
+DeviceLayr.clearAllGamepadTriggers();
 ```
 
 More can be read about DeviceLayr on its [Readme](https://github.com/FullScreenShenanigans/DeviceLayr/blob/master/README.md).
