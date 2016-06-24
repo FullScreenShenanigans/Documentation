@@ -9,15 +9,14 @@ This guide will describe how GamesRunnr runs upkeep functions and how FSPAnalyze
 
 # GamesRunnr
 
-GamesRunnr is a module for running a series of callbacks on timed intervals.
-These callbacks deal with maintaining the state of the game.
-An example being a callback to redraw the canvas.
+GamesRunnr is a module for running a series of callbacks grouped into one interval.
+These callbacks deal with maintaining the state of the game, like having a callback to redraw the canvas.
 These callbacks separately are referred to as games.
 
 ## Games
 
 `upkeep` is the biggest part of GamesRunnr.
-This function deals with running all the stored games.
+This function runs all the stored games.
 
 `upkeepTimed` is a utility function for `upkeep` that times and returns the amount of time it takes to run all the games.
 
@@ -26,7 +25,7 @@ let totalTime: number = GamesRunnr.upkeepTimed();
 console.log(`It took `${totalTime}` ms.`);
 ```
 
-This is used to help calculate `upkeepNext` which is a number reference to the next upkeep scheduled by `upkeepScheduler`.
+This is used to help calculate `upkeepNext`, which is a number reference to the next upkeep scheduled by `upkeepScheduler`.
 `upkeepScheduler` is a custom function that takes in a handler for another function and sets it to run after a delay.
 
 ```typescript
