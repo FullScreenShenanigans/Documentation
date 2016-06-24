@@ -87,3 +87,5 @@ To toggle between the two, use `togglePause`.
 ```typescript
 GamesRunnr.togglePause();
 ```
+
+More can be read on GamesRunnr on its [Readme](https://github.com/FullScreenShenanigans/GamesRunnr/blob/master/README.md).
