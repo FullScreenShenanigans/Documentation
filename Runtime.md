@@ -1,4 +1,4 @@
-This guide will describe how GamesRunnr runs upkeep functions FSPAnalyzer is used to schedule them in GameStartr projects.
+This guide will describe how GamesRunnr runs upkeep functions and how FSPAnalyzer is used to schedule them in GameStartr projects.
 
 ### Table of Contents
 1. [GamesRunnr](#gamesrunnr)
@@ -26,7 +26,7 @@ let totalTime: number = GamesRunnr.upkeepTimed();
 console.log(`It took `${totalTime}` ms.`);
 ```
 
-This is used to help calculate `upkeepNext` which is a number reference to the next upkeep which is scheduled by `upkeepScheduler`.
+This is used to help calculate `upkeepNext` which is a number reference to the next upkeep scheduled by `upkeepScheduler`.
 `upkeepScheduler` is a custom function that takes in a handler for another function and sets it to run after a delay.
 
 ```typescript
