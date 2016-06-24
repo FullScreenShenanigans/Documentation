@@ -18,7 +18,7 @@ Triggers are what tie inputs with events and are specific actions on the inputs 
 Events can be added using `addEvent` which takes in a trigger name, key code, and the function to run when the event is triggered.
 
 ```typescript
-InputWritr.addEvent("onKeyDown", 37, () => { console.log("left button pressed"); });
+InputWritr.addEvent("onKeyDown", 37, () => console.log("left button pressed"););
 ```
 
 ...and are removed with `removeEvent` which takes in the trigger and key code.
@@ -40,11 +40,11 @@ InputWritr.removeAliasValues("left", [65, 74, 49]);
 ```typescript
 let InputWriter: IInputWritr = new InputWritr({
     "aliases": {
-        "left":   [65, 37], // a, left button
+        "left": [65, 37], // a, left button
     },
     "triggers": {
-        "onkeydown": {
-            "left": () => { console.log("left button was pressed"); }
+        "onKeyDown": {
+            "left": () => console.log("left button was pressed");
         }
     }
 });
@@ -53,17 +53,17 @@ let InputWriter: IInputWritr = new InputWritr({
 ## Running Events
 
 To run events, use `callEvent` and `makePipe`.
-`makePipe`  takes in a trigger, code label to get the alias from the event, and a boolean to determine whether the default event should be prevented and
-returns a function to run the triggered event.
+`makePipe`  takes in a trigger and code label to get the alias from the event and returns a function to run the triggered event.
 
 ```typescript
-InputWritr.makePipe("onkeydown", "left", true);
+let leftKeyPipe: () => void = InputWritr.makePipe("onKeyDown", "left", true);
+leftKeyPipe();
 ```
 
 `callEvent` takes in the event function/trigger and a key code, then directly runs the event.
 
 ```typescript
-InputWritr.callEvent("onkeydown", "left");
+InputWritr.callEvent("onKeyDown", "left");
 ```
 
 More can be read about InputWritr on its [Readme](https://github.com/FullScreenShenanigans/InputWritr/blob/master/README.md).
