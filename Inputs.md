@@ -18,13 +18,13 @@ Triggers are what tie inputs with events and are specific actions on the inputs 
 Events can be added using `addEvent` which takes in a trigger name, key code, and the function to run when the event is triggered.
 
 ```typescript
-InputWritr.addEvent("onKeyDown", 37, () => console.log("left button pressed"););
+InputWriter.addEvent("onKeyDown", 37, () => console.log("left button pressed"););
 ```
 
 ...and are removed with `removeEvent` which takes in the trigger and key code.
 
 ```typescript
-InputWritr.removeEvent("onKeyDown", 37);
+InputWriter.removeEvent("onKeyDown", 37);
 ```
 
 Events can be triggered by any number of inputs.
@@ -33,8 +33,8 @@ Aliases are additional inputs that allow for an event to be triggered from multi
 They can be added and removed using `addAliasValues` and `removeAliasValues` which both take in the input and an array of key character codes as arguments.
 
 ```typescript
-InputWritr.addAliasValues("left", [65, 74, 49]); // keys a, j, and 1 respectively 
-InputWritr.removeAliasValues("left", [65, 74, 49]);
+InputWriter.addAliasValues("left", [65, 74, 49]); // keys a, j, and 1 respectively 
+InputWriter.removeAliasValues("left", [65, 74, 49]);
 ```
 
 ```typescript
@@ -63,7 +63,7 @@ leftKeyPipe();
 `callEvent` takes in the event function/trigger and a key code, then directly runs the event.
 
 ```typescript
-InputWritr.callEvent("onKeyDown", "left");
+InputWriter.callEvent("onKeyDown", "left");
 ```
 
 More can be read about InputWritr on its [Readme](https://github.com/FullScreenShenanigans/InputWritr/blob/master/README.md).
@@ -77,7 +77,7 @@ Connected devices are detected and registered with `checkNavigatorGamepads` whic
 of gamepads added.
 
 ```typescript
-let num = DeviceLayr.checkNavigatorGamepapds();
+let num = DeviceLayer.checkNavigatorGamepapds();
 console.log(${num}` gamepads were added.`);
 ```
 
@@ -90,13 +90,13 @@ Aliases for gamepad triggers are binary signals for whether an active change was
 `activateAllGamepadTriggers` checks the status of all registered gamepads and calls the equivalent InputWritr event if any triggers have occurred.
 
 ```typescript
-DeviceLayr.activateAllGamepadTriggers();
+DeviceLayer.activateAllGamepadTriggers();
 ``` 
 
 To clear the status of all joysticks and buttons, use `clearAllGamepadTriggers`.
 
 ```typescript
-DeviceLayr.clearAllGamepadTriggers();
+DeviceLayer.clearAllGamepadTriggers();
 ```
 
 More can be read about DeviceLayr on its [Readme](https://github.com/FullScreenShenanigans/DeviceLayr/blob/master/README.md).
