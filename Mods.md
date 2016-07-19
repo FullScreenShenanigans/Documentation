@@ -57,7 +57,7 @@ ModAttacher.fireEvent("onBattleStart");
 To fire an event for one mod, use `fireModEvent`.
 
 ```typescript
-ModAttacher.fireModeEvent("onBattleStart", "Infinite Health");
+ModAttacher.fireModEvent("onBattleStart", "Infinite Health");
 
 // Passing in additional arguments.
 let opponent: IOpponent = new Opponent();
