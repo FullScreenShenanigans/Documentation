@@ -228,8 +228,15 @@ More can be read about ItemsHoldr on its [Readme](https://github.com/FullScreenS
 # StateHoldr
 
 StateHoldr is a module for tracking changes of items in ItemsHolder in objects called collections.
+A collection is an object whose keys are item names in ItemsHolder and whose values are key-value pairs of of item attributes and values.
+These key-value pairs of attributes and values are referred to as changes.
+Changes are separate from the actual values for items in ItemsHoldr.
+
+## Prefix
 
 Like ItemsHoldr, StateHoldr has its own prefix property.
+The prefixes for StateHoldr and ItemsHoldr are not the same and do not affect each other.
+StateHoldr needs a prefix of its own as it saves its collections in ItemsHoldr.
 
 ```typescript
 let StateHolder = new StateHoldr({
@@ -238,39 +245,11 @@ let StateHolder = new StateHoldr({
 });
 ```
 
-## Changes
-
-Changes are stored as key-value pairs under an item.
-To add a change to the current collection, use `addChange`.
-`addChange` takes in the key of the item, an attribute of the item, and the value being stored.
-
-```typescript
-StateHolder.addChange("car", "color", "red");
-```
-
-If the name of the collection is known, whether or not its the current collection, a change can be added with `addCollectionChange`.
-
-```typescript
-StateHolder.addCollectionChange("other_collection", "car", "color", "red");
-```
-
-Changes for an item in the current collection can be copied to another object with `applyChanges`.
-
-```typescript
-let recipient: { [i: string]: any } = {};
-StateHolder.applyChanges("car", recipient);
-```
-
-`getChanges` returns the changes for a specific item.
-
-```typescript
-let changes: { [i: string]: any } = StateHolder.getChanges("car");
-```
-
 ## Collections
 
 StateHoldr keeps track of the collections its recorded.
 It is saved as `stateCollectionKeys` in ItemsHolder.
+StateHoldr always points to one collection, the current collection, at any time.
 
 `setCollection` sets the current collection.
 
@@ -286,6 +265,34 @@ StateHolder.setCollection("newCollection", {
 
 ```typescript
 StateHolder.saveCollection();
+```
+
+## Changes
+
+To add a change to the current collection, use `addChange`.
+`addChange` takes in the key of the item, an attribute of the item, and the value being stored.
+
+```typescript
+StateHolder.addChange("car", "color", "red");
+```
+
+If the name of the collection is known, whether or not its the current collection, a change can be added with `addCollectionChange`.
+
+```typescript
+StateHolder.addCollectionChange("other_collection", "car", "color", "red");
+```
+
+To copy changes from an item in the current collection into a target object, use `applyChanges`.
+
+```typescript
+let recipient: { [i: string]: any } = {};
+StateHolder.applyChanges("car", recipient);
+```
+
+`getChanges` returns the changes for a specific item.
+
+```typescript
+let changes: { [i: string]: any } = StateHolder.getChanges("car");
 ```
 
 More can be read about StateHoldr on its [Readme](https://github.com/FullScreenShenanigans/StateHoldr/blob/master/README.md).
