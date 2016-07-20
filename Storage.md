@@ -11,14 +11,13 @@ This guide will describe how FullScreenShenanigans projects keep track of game i
 
 # ItemsHoldr
 
-ItemsHoldr is a versatile container to store and manipulate values in localStorage, and optionally keep an updated HTML container showing these values.
+ItemsHoldr is a versatile container to store and manipulate values in localStorage, and optionally keep an HTML container to show these values.
 
 ## Local Storage
 
-`localStorage` is a browser property where information is saved without expiring.
 ItemsHoldr keeps track of items and their values while the game is running.
-
-Other sources (e.g. websites) also use `localStorage`, so ItemsHoldr has a prefix property to differentiate which information belongs to which.
+It can also save this information to `localStorage`.
+Other websites also use `localStorage`, so ItemsHoldr has a prefix property to differentiate which information belongs to which.
 
 ```typescript
 let ItemsHolder: ItemsHoldr = new ItemsHoldr({
@@ -29,15 +28,11 @@ let ItemsHolder: ItemsHoldr = new ItemsHoldr({
 ## Items
 
 To add an item to the collection, use `addItem` and to remove an item, use `removeItem`.
+`setItem` is used to set the value of an item.
 
 ```typescript
 ItemsHolder.addItem("color", { value: "red" });
 ItemsHolder.removeItem("color");
-```
-
-`setItem` is used to set the value of an item.
-
-```typescript
 ItemsHolder.setItem("color", "purple");
 ```
 
@@ -64,7 +59,7 @@ ItemsHolder.toggle("started");
 ItemsHolder.checkExistence("color");
 ```
 
-By default if an item does not exist when `setItem`, `getItem`, `increase`, or `toggle` are called, the item is then added to the collection in the process of the respective function.
+By default if an item does not exist when `setItem`, `getItem`, `increase`, or `toggle` are called, the item is then added to the collection.
 Define `allowNewItems` to explicitly enable or disable this feature.
 
 ```typescript
@@ -73,12 +68,11 @@ let ItemsHolder: ItemsHoldr = new ItemsHoldr({ allowNewItems: false });
 
 ## Updating
 
-When an item's value changes, the module checks its triggers, modularity, and element status.
-
 Triggers are functions that get run when an item's value equals the specified value.
 
 ```typescript
 ItemsHolder.addItem("color", {
+    value: "cyan",
     triggers: {
         red: () => { this.value = "black"; }
     }
@@ -89,10 +83,11 @@ ItemsHolder.setItem("color", "red");
 Modularity restricts an item's value to a range from 0 to the specified max and runs the `onModular` function as many times until the value hits the modular range.
 
 ```typescript
+ItemsHolder.addItem("counter", { value: 0 });
 ItemsHolder.addItem("time", {
+    value: 0,
     modularity: 12,
-    num: 0,
-    onModular: () => { this.num += 1; }
+    onModular: () => { ItemsHolder.increase("counter", 1); }
 });
 ItemsHolder.setItem("time", 100);
 ```
@@ -135,17 +130,9 @@ ItemsHolder.clear(); // "color" is still in the collection with a reset value of
 
 ## Elements
 
-### *Note:* This part of ItemsHoldr will be placed into another module in the future.
+*Note:* This part of ItemsHoldr will be placed into another module in the future.
 
 HTML elements stored within ItemsHoldr will have their values on the page updated to their changed value.
-
-```typescript
-ItemsHolder.addItem("color", {
-    hasElement: true,
-    element: {}
-});
-ItemsHolder.setItem("color", "red");
-```
 
 To signal if a container should be made to hold HTML elements, assign a value to `doMakeContainer`.
 
@@ -154,8 +141,21 @@ let ItemsHolder: ItemsHoldr = new ItemsHoldr({ doMakeContainer: true });
 ```
 
 With this, any HTML items passed in at the time of construction are held in ItemsHolder's `container` object.
-Each of the item's elements are added to the container as its children.
 The container can be used to display a number of elements grouped together.
+To signal if an item is an element, assign `hasElement` to true.
+
+```typescript
+let ItemsHolder: ItemsHoldr = new ItemsHoldr({
+    doMakeContainer: true,
+    values: {
+        color: {
+            valueDefault: "black",
+            hasElement: true
+        }
+    }
+});
+ItemsHolder.setItem("color", "red");
+```
 
 ```typescript
 let ItemsHolder: ItemsHoldr = new ItemsHoldr({
@@ -163,8 +163,7 @@ let ItemsHolder: ItemsHoldr = new ItemsHoldr({
     values: {
         color: {
             valueDefault: "red",
-            hasElement: true,
-            element: {}
+            hasElement: true
         }
     }
 });
@@ -172,8 +171,7 @@ let ItemsHolder: ItemsHoldr = new ItemsHoldr({
 // color is in the container, but speed is not
 ItemsHolder.addItem("speed", {
     valueDefault: 10,
-    hasElement: true,
-    element: {}
+    hasElement: true
 });
 ```
 
@@ -191,35 +189,24 @@ let ItemsHolder = new ItemsHoldr({
 
 ItemsHolder.addItem("limit", {
     value: "4000",
-    hasElement: true,
-    element: {}
+    hasElement: true
 });
 ItemsHolder.setItem("limit", "Infinity");
 ```
 
-`hasDisplayChange` checks to see if a value has a recorded change.
+`hasDisplayChange` checks to see if a value has a recorded change and `getdisplayChange` returns the entry to replace the value with.
 
 ```typescript
 ItemsHolder.hasDisplayChange("Infinity");
-```
-
-...and `getdisplayChange` returns the entry to replace the value with.
-
-```typescript
 let newValue: string = ItemsHolder.getDisplayChange("Infinity");
 ```
 
 ### Container Visibility
 
-`hideContainer` hides the container from view.
+`hideContainer` hides the container from view and `displayContainer` makes the container visible.
 
 ```typescript
 ItemsHolder.hideContainer();
-```
-
-...while `displayContainer` makes the container visible.
-
-```typescript
 ItemsHolder.displayContainer();
 ```
 
