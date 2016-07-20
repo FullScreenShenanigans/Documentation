@@ -1,9 +1,9 @@
-This guide will describe how FullScreenShenanigans projects store and keep track of game information.
+This guide will describe how FullScreenShenanigans projects keep track of game information.
 
 ### Table of Contents
 1. [ItemsHoldr](#itemsholdr)
     1. [Local Storage](#local-storage)
-    2. [Getters and Setters](#getters-and-setters)
+    2. [Items](#items)
     3. [Updating](#updating)
     4. [Clearing and Defaults](#clearing-and-defaults)
     5. [Elements](#elements)
@@ -15,10 +15,10 @@ ItemsHoldr is a versatile container to store and manipulate values in localStora
 
 ## Local Storage
 
-Local Storage is a browser property where information is saved past session activity.
-ItemsHoldr keeps track of items and their values while the game is running and periodically saves them to `localStorage`.
+`localStorage` is a browser property where information is saved without expiring.
+ItemsHoldr keeps track of items and their values while the game is running.
 
-Because not just these FSS projects might be using the browser's localStorage, ItemsHoldr has a prefix property to differentiate which information belongs to which source.
+Other sources (e.g. websites) also use `localStorage`, so ItemsHoldr has a prefix property to differentiate which information belongs to which.
 
 ```typescript
 let ItemsHolder: ItemsHoldr = new ItemsHoldr({
@@ -26,38 +26,12 @@ let ItemsHolder: ItemsHoldr = new ItemsHoldr({
 });
 ```
 
-## Getters and Setters
+## Items
 
-ItemsHoldr has a number of functions that return information about the collection of items or a specific item.
-
-```typescript
-// simple gets
-ItemsHolder.getKeys();
-ItemsHolder.getValues();
-ItemsHolder.exportItems();
-ItemsHolder.getAutoSave();
-ItemsHolder.getLocalStorage();
-ItemsHolder.getPrefix();
-ItemsHolder.getContainer();
-ItemsHolder.getDisplayChanges();
-
-// returns the indexed key
-ItemsHolder.key(1);
-// returns the value under the key
-ItemsHolder.getItem("color");
-// returns whether the key is in the collection
-ItemsHolder.hasKey("color");
-```
-
-To add an item to the collection, use `addItem`.
+To add an item to the collection, use `addItem` and to remove an item, use `removeItem`.
 
 ```typescript
 ItemsHolder.addItem("color", { value: "red" });
-```
-
-To remove an item, use `removeItem`.
-
-```typescript
 ItemsHolder.removeItem("color");
 ```
 
@@ -68,27 +42,19 @@ ItemsHolder.setItem("color", "purple");
 ```
 
 To manually update a changed item's value in localStorage, use `saveItem`.
-
-```typescript
-ItemsHolder.saveItem("color");
-```
-
 To save all the items' values in localStorage, use `saveAll`
 
 ```typescript
+ItemsHolder.saveItem("color");
 ItemsHolder.saveAll();
 ```
 
 `increase` and `decrease` add and subtract respectively from the item's value.
+`toggle` flips the boolean value of the item.
 
 ```typescript
 ItemsHolder.increase("weight", 14);
 ItemsHolder.decrease("weight", 10);
-```
-
-`toggle` flips the boolean value of the item.
-
-```typescript
 ItemsHolder.toggle("started");
 ```
 
@@ -117,7 +83,7 @@ ItemsHolder.addItem("color", {
         red: () => { this.value = "black"; }
     }
 });
-ItemsHolder.setItem("color", red);
+ItemsHolder.setItem("color", "red");
 ```
 
 Modularity restricts an item's value to a range from 0 to the specified max and runs the `onModular` function as many times until the value hits the modular range.
@@ -129,16 +95,6 @@ ItemsHolder.addItem("time", {
     onModular: () => { this.num += 1; }
 });
 ItemsHolder.setItem("time", 100);
-```
-
-If the item is an HTML element, the value is also updated on the page.
-
-```typescript
-ItemsHolder.addItem("color", {
-    hasElement: true,
-    element: {}
-});
-ItemsHolder.setItem("color", "red");
 ```
 
 ### Auto Save
@@ -164,7 +120,7 @@ To clear all items from the collections, use `clear`.
 ItemsHolder.clear();
 ```
 
-To clear the collection, but keep some items which will always be in the collection, utilize ItemHoldr's `valueDefault` property.
+To clear the collection, but keep some items which will always be in the collection, utilize ItemsHoldr's `valueDefault` property.
 
 ```typescript
 let ItemsHolder: ItemsHoldr = new ItemsHoldr({
@@ -179,14 +135,27 @@ ItemsHolder.clear(); // "color" is still in the collection with a reset value of
 
 ## Elements
 
-HTML elements stored within ItemsHoldr will have their values updated on the page when changed.
+### *Note:* This part of ItemsHoldr will be placed into another module in the future.
+
+HTML elements stored within ItemsHoldr will have their values on the page updated to their changed value.
+
+```typescript
+ItemsHolder.addItem("color", {
+    hasElement: true,
+    element: {}
+});
+ItemsHolder.setItem("color", "red");
+```
+
 To signal if a container should be made to hold HTML elements, assign a value to `doMakeContainer`.
 
 ```typescript
 let ItemsHolder: ItemsHoldr = new ItemsHoldr({ doMakeContainer: true });
 ```
 
-With this, any HTML items in the collection at the time of construction are held in ItemHolder's `container` object.
+With this, any HTML items passed in at the time of construction are held in ItemsHolder's `container` object.
+Each of the item's elements are added to the container as its children.
+The container can be used to display a number of elements grouped together.
 
 ```typescript
 let ItemsHolder: ItemsHoldr = new ItemsHoldr({
@@ -203,7 +172,7 @@ let ItemsHolder: ItemsHoldr = new ItemsHoldr({
 // color is in the container, but speed is not
 ItemsHolder.addItem("speed", {
     valueDefault: 10,
-    haselement: true,
+    hasElement: true,
     element: {}
 });
 ```
@@ -216,16 +185,16 @@ These changes are hardcoded values that replace specified values when element it
 ```typescript
 let ItemsHolder = new ItemsHoldr({
     displayChanges: {
-        Infinity: "∞";
+        Infinity: "INF";
     }
 });
 
 ItemsHolder.addItem("limit", {
     value: "4000",
-    haselement: true,
+    hasElement: true,
     element: {}
 });
-ItemHolder.setItem("limit", "Infinity");
+ItemsHolder.setItem("limit", "Infinity");
 ```
 
 `hasDisplayChange` checks to see if a value has a recorded change.
