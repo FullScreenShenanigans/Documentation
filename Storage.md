@@ -42,7 +42,7 @@ ItemsHolder.setItem("color", "purple");
 ```
 
 To manually update a changed item's value in localStorage, use `saveItem`.
-To save all the items' values in localStorage, use `saveAll`
+To save all the items' values in localStorage, use `saveAll`.
 
 ```typescript
 ItemsHolder.saveItem("color");
@@ -58,7 +58,7 @@ ItemsHolder.decrease("weight", 10);
 ItemsHolder.toggle("started");
 ```
 
-`checkExistence` can be used to check if there is an item under the specified key, and if not, add it to the collection.
+`checkExistence` can be used to check if there is an item under the specified key and if not, add it to the collection.
 
 ```typescript
 ItemsHolder.checkExistence("color");
@@ -100,7 +100,7 @@ ItemsHolder.setItem("time", 100);
 ### Auto Save
 
 By default, the values in localStorage are not updated when their values change.
-Auto saving which updates localStorage values can be enabled when making the ItemsHolder container.
+Auto saving, which updates localStorage values, can be enabled when making the ItemsHolder container.
 
 ```typescript
 let ItemsHolder = new ItemsHoldr({ autoSave: true });
@@ -114,7 +114,7 @@ ItemsHolder.toggleAutoSave();
 
 ## Clearing and Defaults
 
-To clear all items from the collections, use `clear`.
+To clear all items from the collection, use `clear`.
 
 ```typescript
 ItemsHolder.clear();
