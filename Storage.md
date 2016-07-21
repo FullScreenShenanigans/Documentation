@@ -233,7 +233,7 @@ A collection is a group of these changes keyed by the respective item name.
 Collections describe how items have changed.
 
 ```typescript
-let garage: { [i:string]: any } {
+let garage: { [i:string]: any } = {
     car: {
         color: "red"
     }
