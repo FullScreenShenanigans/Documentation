@@ -228,15 +228,24 @@ More can be read about ItemsHoldr on its [Readme](https://github.com/FullScreenS
 # StateHoldr
 
 StateHoldr is a module for tracking changes of items in ItemsHolder in objects called collections.
-A collection is an object whose keys are item names in ItemsHolder and whose values are key-value pairs of item attributes and values.
-These key-value pairs of attributes and values are referred to as changes.
-Collections are like a person and changes are the physical traits describing that person.
+Changes are key-value pairs of attributes for items and values.
+A collection is a group of these changes keyed by the respective item name.
+Collections describe how items have changed.
+
+```typescript
+let garage: { [i:string]: any } {
+    car: {
+        color: "red"
+    }
+}
+```
+
+Collections allow for various attributes for a single item to be grouped together versus storing individual items.
 
 ## Prefix
 
 Like ItemsHoldr, StateHoldr has its own prefix property.
 All collections in StateHoldr are stored in ItemsHoldr prepended with the StateHoldr prefix.
-So the collections are stored in `localStorage` prepended with the ItemsHoldr prefix as well.
 
 ```typescript
 let StateHolder = new StateHoldr({
@@ -247,26 +256,20 @@ let StateHolder = new StateHoldr({
 
 ## Collections
 
-Collections allow for various attributes for a single item to be grouped together versus storing individual items.
 The collections the module has recorded are stored in a list keyed by `stateCollectionKeys` in ItemsHolder (no StateHoldr prefix prepended).
 StateHoldr always has one collection as its current collection.
 
 `setCollection` sets the current collection.
 
 ```typescript
-// sets the collection name and the collection's value
 StateHolder.setCollection("newCollection", {
     car: {
         color: "red"
     }
 });
-
-// sets only the name for the collection
-StateHolder.setCollection("newCollection");
 ```
 
-If only a name is given, the collection is set to a blank object.
-
+Collections aren't put into ItemsHolder until they are saved.
 `saveCollection` saves the current collection to ItemsHolder.
 
 ```typescript
@@ -282,7 +285,7 @@ To add a change to the current collection, use `addChange`.
 StateHolder.addChange("car", "color", "red");
 ```
 
-If the name of the collection is known, whether or not it's the current collection, a change can be added with `addCollectionChange`.
+A change to a specific collection can be added with `addCollectionChange`.
 
 ```typescript
 StateHolder.addCollectionChange("other_collection", "car", "color", "red");
