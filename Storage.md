@@ -17,7 +17,7 @@ ItemsHoldr is a versatile container to store and manipulate values in localStora
 
 ItemsHoldr keeps track of items and their values while the game is running.
 It can also save this information to `localStorage`.
-Other websites also use `localStorage`, so ItemsHoldr has a prefix property to differentiate which information belongs to which.
+Other websites also use `localStorage`, so ItemsHoldr has a prefix property to differentiate which information belongs to which source.
 
 ```typescript
 let ItemsHolder: ItemsHoldr = new ItemsHoldr({
@@ -27,17 +27,16 @@ let ItemsHolder: ItemsHoldr = new ItemsHoldr({
 
 ## Items
 
-To add an item to the collection, use `addItem` and to remove an item, use `removeItem`.
-`setItem` is used to set the value of an item.
+To add, update, and remove an item in the collection, use `addItem`, `setItem`, and `removeItem` respectively.
 
 ```typescript
 ItemsHolder.addItem("color", { value: "red" });
-ItemsHolder.removeItem("color");
 ItemsHolder.setItem("color", "purple");
+ItemsHolder.removeItem("color");
 ```
 
 To manually update a changed item's value in localStorage, use `saveItem`.
-To save all the items' values in localStorage, use `saveAll`.
+To save all the items' values to localStorage, use `saveAll`.
 
 ```typescript
 ItemsHolder.saveItem("color");
@@ -80,7 +79,7 @@ ItemsHolder.addItem("color", {
 ItemsHolder.setItem("color", "red");
 ```
 
-Modularity restricts an item's value to a range from 0 to the specified max and runs the `onModular` function as many times until the value hits the modular range.
+Modularity restricts an item's value to a range from 0 to the specified max and keeps running the `onModular` function until the value hits the modular range.
 
 ```typescript
 ItemsHolder.addItem("counter", { value: 0 });
@@ -95,13 +94,13 @@ ItemsHolder.setItem("time", 100);
 ### Auto Save
 
 By default, the values in localStorage are not updated when their values change.
-Auto saving, which updates localStorage values, can be enabled when making the ItemsHolder container.
+Auto saving, which updates a value in localStorage, can be enabled when making the ItemsHolder container.
 
 ```typescript
 let ItemsHolder = new ItemsHoldr({ autoSave: true });
 ```
 
-To toggle the autoSave feature, use `toggleAutoSave`.
+To toggle autoSave, use `toggleAutoSave`.
 
 ```typescript
 ItemsHolder.toggleAutoSave();
@@ -115,7 +114,7 @@ To clear all items from the collection, use `clear`.
 ItemsHolder.clear();
 ```
 
-To clear the collection, but keep some items which will always be in the collection, utilize ItemsHoldr's `valueDefault` property.
+To clear the collection, but keep some items which will always be in the collection, use `valueDefault`.
 
 ```typescript
 let ItemsHolder: ItemsHoldr = new ItemsHoldr({
@@ -132,8 +131,6 @@ ItemsHolder.clear(); // "color" is still in the collection with a reset value of
 
 *Note:* This part of ItemsHoldr will be placed into another module in the future.
 
-HTML elements stored within ItemsHoldr will have their values on the page updated to their changed value.
-
 To signal if a container should be made to hold HTML elements, assign a value to `doMakeContainer`.
 
 ```typescript
@@ -141,7 +138,7 @@ let ItemsHolder: ItemsHoldr = new ItemsHoldr({ doMakeContainer: true });
 ```
 
 With this, any HTML items passed in at the time of construction are held in ItemsHolder's `container` object.
-The container can be used to display a number of elements grouped together.
+HTML elements stored within ItemsHoldr will have their values on the page updated if the container is appended to an element on the page.
 To signal if an item is an element, assign `hasElement` to true.
 
 ```typescript
@@ -177,7 +174,7 @@ ItemsHolder.addItem("speed", {
 
 ### Display Changes
 
-If you want certain values to be represented differently on the page, make use of `displayChanges`.
+If you want certain values to be represented differently on the page, use `displayChanges`.
 These changes are hardcoded values that replace specified values when element items are updated.
 
 ```typescript
@@ -194,7 +191,7 @@ ItemsHolder.addItem("limit", {
 ItemsHolder.setItem("limit", "Infinity");
 ```
 
-`hasDisplayChange` checks to see if a value has a recorded change and `getdisplayChange` returns the entry to replace the value with.
+`hasDisplayChange` checks to see if a value has a recorded change and `getDisplayChange` returns the entry to replace the value with.
 
 ```typescript
 ItemsHolder.hasDisplayChange("Infinity");
