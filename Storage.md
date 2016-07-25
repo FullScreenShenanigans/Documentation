@@ -137,7 +137,6 @@ To signal if a container should be made to hold HTML elements, assign a value to
 let ItemsHolder: ItemsHoldr = new ItemsHoldr({ doMakeContainer: true });
 ```
 
-With this, any HTML items passed in at the time of construction are held in ItemsHolder's `container` object.
 HTML elements stored within ItemsHoldr will have their values on the page updated if the container is appended to an element on the page.
 To signal if an item is an element, assign `hasElement` to true.
 
@@ -163,12 +162,6 @@ let ItemsHolder: ItemsHoldr = new ItemsHoldr({
             hasElement: true
         }
     }
-});
-
-// color is in the container, but speed is not
-ItemsHolder.addItem("speed", {
-    valueDefault: 10,
-    hasElement: true
 });
 ```
 
