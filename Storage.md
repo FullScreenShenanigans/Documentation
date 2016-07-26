@@ -80,7 +80,8 @@ ItemsHolder.setItem("color", "red");
 ```
 
 Modularity restricts an item's value to a range from 0 to the specified max.
-When the value is changed, the `onModular` function is then run `x / modularity` times, where `x` is the number the value was set to.
+When the value is changed, the `onModular` function is run `x / modularity` times, where `x` is the number the value was set to.
+Each time the function is run, value gets set to `value % modularity`.
 
 ```typescript
 ItemsHolder.addItem("counter", { value: 0 });
@@ -94,13 +95,13 @@ ItemsHolder.setItem("time", 100);
 
 ### Auto Save
 
-By default, the values in localStorage are not updated when their values change.
 Auto saving, which updates an item's value in localStorage when the value is changed, can be enabled when making the ItemsHolder container.
 
 ```typescript
 let ItemsHolder = new ItemsHoldr({ autoSave: true });
 ```
 
+By default, this is disabled.
 To toggle autoSave, use `toggleAutoSave`.
 
 ```typescript
