@@ -79,7 +79,8 @@ ItemsHolder.addItem("color", {
 ItemsHolder.setItem("color", "red");
 ```
 
-Modularity restricts an item's value to a range from 0 to the specified max and keeps running the `onModular` function until the value hits the modular range.
+Modularity restricts an item's value to a range from 0 to the specified max.
+When the value is changed, the `onModular` function is then run `x / modularity` times, where `x` is the number the value was set to.
 
 ```typescript
 ItemsHolder.addItem("counter", { value: 0 });
@@ -94,7 +95,7 @@ ItemsHolder.setItem("time", 100);
 ### Auto Save
 
 By default, the values in localStorage are not updated when their values change.
-Auto saving, which updates a value in localStorage, can be enabled when making the ItemsHolder container.
+Auto saving, which updates an item's value in localStorage when the value is changed, can be enabled when making the ItemsHolder container.
 
 ```typescript
 let ItemsHolder = new ItemsHoldr({ autoSave: true });
@@ -137,7 +138,7 @@ To signal if a container should be made to hold HTML elements, assign a value to
 let ItemsHolder: ItemsHoldr = new ItemsHoldr({ doMakeContainer: true });
 ```
 
-HTML elements stored within ItemsHoldr will have their values on the page updated if the container is appended to an element on the page.
+Changes to element values will show on the page if the container is appended to an element on the page.
 To signal if an item is an element, assign `hasElement` to true.
 
 ```typescript
