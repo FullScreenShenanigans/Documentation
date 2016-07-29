@@ -17,7 +17,7 @@ ItemsHoldr is a versatile container to store and manipulate values in localStora
 
 ItemsHoldr keeps track of items and their values while the game is running.
 It can also save this information to `localStorage`.
-Other websites also use `localStorage`, so ItemsHoldr has a prefix property to differentiate which information belongs to which source.
+Other websites also use `localStorage`, so ItemsHoldr has a prefix property to differentiate ItemsHoldr's information.
 
 ```typescript
 let ItemsHolder: ItemsHoldr = new ItemsHoldr({
@@ -35,15 +35,7 @@ ItemsHolder.setItem("color", "purple");
 ItemsHolder.removeItem("color");
 ```
 
-To manually update a changed item's value in localStorage, use `saveItem`.
-To save all the items' values to localStorage, use `saveAll`.
-
-```typescript
-ItemsHolder.saveItem("color");
-ItemsHolder.saveAll();
-```
-
-`increase` and `decrease` add and subtract respectively from the item's value.
+`increase` and `decrease` add and subtract from the item's value.
 `toggle` flips the boolean value of the item.
 
 ```typescript
@@ -62,7 +54,34 @@ By default if an item does not exist when `setItem`, `getItem`, `increase`, or `
 Define `allowNewItems` to explicitly enable or disable this feature.
 
 ```typescript
-let ItemsHolder: ItemsHoldr = new ItemsHoldr({ allowNewItems: false });
+let ItemsHolder: ItemsHoldr = new ItemsHoldr({
+    allowNewItems: false
+});
+```
+
+To manually update a changed item's value in localStorage, use `saveItem`.
+To save all the items' values to localStorage, use `saveAll`.
+
+```typescript
+ItemsHolder.saveItem("color");
+ItemsHolder.saveAll();
+```
+
+### Auto Save
+
+Auto saving, which updates an item's value in localStorage when the value is changed, can be enabled when making the ItemsHolder container.
+
+```typescript
+let ItemsHolder = new ItemsHoldr({
+    autoSave: true
+});
+```
+
+By default, this is disabled.
+To toggle autoSave, use `toggleAutoSave`.
+
+```typescript
+ItemsHolder.toggleAutoSave();
 ```
 
 ## Updating
@@ -93,21 +112,6 @@ ItemsHolder.addItem("time", {
 ItemsHolder.setItem("time", 100);
 ```
 
-### Auto Save
-
-Auto saving, which updates an item's value in localStorage when the value is changed, can be enabled when making the ItemsHolder container.
-
-```typescript
-let ItemsHolder = new ItemsHoldr({ autoSave: true });
-```
-
-By default, this is disabled.
-To toggle autoSave, use `toggleAutoSave`.
-
-```typescript
-ItemsHolder.toggleAutoSave();
-```
-
 ## Clearing and Defaults
 
 To clear all items from the collection, use `clear`.
@@ -136,24 +140,13 @@ ItemsHolder.clear(); // "color" is still in the collection with a reset value of
 To signal if a container should be made to hold HTML elements, assign a value to `doMakeContainer`.
 
 ```typescript
-let ItemsHolder: ItemsHoldr = new ItemsHoldr({ doMakeContainer: true });
+let ItemsHolder: ItemsHoldr = new ItemsHoldr({
+    doMakeContainer: true
+});
 ```
 
 Changes to element values will show on the page if the container is appended to an element on the page.
 To signal if an item is an element, assign `hasElement` to true.
-
-```typescript
-let ItemsHolder: ItemsHoldr = new ItemsHoldr({
-    doMakeContainer: true,
-    values: {
-        color: {
-            valueDefault: "black",
-            hasElement: true
-        }
-    }
-});
-ItemsHolder.setItem("color", "red");
-```
 
 ```typescript
 let ItemsHolder: ItemsHoldr = new ItemsHoldr({
