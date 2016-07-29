@@ -8,6 +8,9 @@ This guide will describe how FullScreenShenanigans projects keep track of game i
     4. [Clearing and Defaults](#clearing-and-defaults)
     5. [Elements](#elements)
 2. [StateHoldr](#stateholdr)
+    1. [Prefix](#prefix)
+    2. [Collections](#collections)
+    3. [Changes](#changes)
 
 # ItemsHoldr
 
@@ -230,14 +233,14 @@ More can be read about ItemsHoldr on its [Readme](https://github.com/FullScreenS
 StateHoldr is a module for tracking changes of items in ItemsHolder in objects called collections.
 Changes are key-value pairs of attributes for items and values.
 A collection describes how named items in a group have been changed. For each item in the group, the collection will store a key-value pair of attributes and new values.
-For example, the "garage" collection that contains a "car" item with "color" and "name" changes could be described as:
+For example, a garage collection that contains a "car" item with "color" and "name" changes could be described as:
 
 ```typescript
 let garage: { [i:string]: any } = {
     car: {
         color: "red"
     }
-}
+};
 ```
 
 Collections allow for various attributes for a single item to be grouped together versus storing individual items.
