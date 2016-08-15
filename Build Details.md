@@ -11,10 +11,10 @@ It contains descriptions of the Gulp tasks used for building.
 Build tasks for FullScreenShenanigans projects are loaded by the [gulp-shenanigans](https://github.com/FullScreenShenanigans/gulp-shenanigans/) project.
 This allows the tasks to be defined once across the two dozen projects, and updates brought in via `npm update`.
 
-### gulpfile.js
+### `shenanigans.json`
 
-gulp-shenangians is initialized by settings in each project's gulpfile.js.
-The settings match the `IGulpSettings` interface in gulp-shenanigans' [src/definitions.ts](https://github.com/FullScreenShenanigans/gulp-shenanigans/blob/master/src/definitions.ts).
+gulp-shenangigans is configured a project's `shenanigans.json`.
+The settings match the `IProjectSchema` interface in gulp-shenanigans' [src/definitions.ts](https://github.com/FullScreenShenanigans/gulp-shenanigans/blob/master/src/definitions.ts).
 
 
 ## Tasks
