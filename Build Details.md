@@ -19,7 +19,13 @@ The settings match the `IProjectSchema` interface in gulp-shenanigans' [src/defi
 
 ## Tasks
 
-The `default` task runs the following task groups in order.
+### `default`
+
+The `default` task runs `src`, `lib`, and `test` in order.
+
+### `setup`
+
+`setup` copies configuration files such as `.gitignore` and typings, and generates `package.json`.
 
 ### `clean`
 
