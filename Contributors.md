@@ -9,7 +9,7 @@ Names are sorted within groups by last name. Groups are in order of commit magni
 
 ### [RCOS](https://rcos.io/projects/JoshuaKGoldberg/FullScreenPokemon/profile) RPI Students
 
-* [Graigoe Pierre-Noell](https://github.com/gpnoel)
+* [Graigor Pierre-Noell](https://github.com/gpnoel)
     * May 2016:
         * [Fixed FSP walking during ledge hops and after battles](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/272)
         * [ObjectMakr function defaults](https://github.com/FullScreenShenanigans/ObjectMakr/issues/10)
