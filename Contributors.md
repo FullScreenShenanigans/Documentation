@@ -9,6 +9,23 @@ Names are sorted within groups by last name. Groups are in order of commit magni
 
 ### [RCOS](https://rcos.io/projects/JoshuaKGoldberg/FullScreenPokemon/profile) RPI Students
 
+* [Graigoe Pierre-Noell](https://github.com/gpnoel)
+    * May 2016:
+        * [Fixed FSP walking during ledge hops and after battles](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/272)
+        * [ObjectMakr function defaults](https://github.com/FullScreenShenanigans/ObjectMakr/issues/10)
+    * June 2016:
+        * [GameStartr state history](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/275)
+        * Scratch and Growl animations in FSP
+        * Assorted documentation additions
+        * [FSP new game localStorage clearing](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/281)
+    * July 2016:
+        * [FSP auto-saving](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/287)
+        * [ItemsHoldr unit tests](https://github.com/FullScreenShenanigans/ItemsHoldr/pull/16)
+        * [StateHoldr unit tests](https://github.com/FullScreenShenanigans/StateHoldr/pull/3)
+        * Assorted documentation additions
+        * Code style improvements: [thing.FSP scoping](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/285), [for..of over for;;](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/286), [thingsById as a GroupHoldr group](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/290)
+        * [AudioPlayr unit tests](https://github.com/FullScreenShenanigans/AudioPlayr/pull/7/files)
+
 * [Blake Lingenau](https://github.com/blingenau)
     * February 2016:
         * [Added FSP function documentation](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/136)
