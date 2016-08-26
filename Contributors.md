@@ -22,6 +22,7 @@ Names are sorted within groups by last name. Groups are in order of commit magni
         * [FSP auto-saving](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/287)
         * [ItemsHoldr unit tests](https://github.com/FullScreenShenanigans/ItemsHoldr/pull/16)
         * [StateHoldr unit tests](https://github.com/FullScreenShenanigans/StateHoldr/pull/3)
+        * [MenuGraphr menus ounds](https://github.com/FullScreenShenanigans/FullScreenPokemon/issues/117)
         * Assorted documentation additions
         * Code style improvements: [thing.FSP scoping](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/285), [for..of over for;;](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/286), [thingsById as a GroupHoldr group](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/290)
         * [AudioPlayr unit tests](https://github.com/FullScreenShenanigans/AudioPlayr/pull/7/files)
