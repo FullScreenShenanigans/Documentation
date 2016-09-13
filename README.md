@@ -1,7 +1,7 @@
 # Documentation
 
 This is the central repository for tutorials and instructions on FullScreenShenanigans projects.
-These are all TypeScript projects are tailored to or built on the GameStartr game engine.
+These are all TypeScript projects tailored to or built on the GameStartr game engine.
 
 
 # Getting Started
