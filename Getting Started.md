@@ -50,4 +50,4 @@ and unpausing the game
 FSP.GamesRunner.play();
 ```
 
-In this case, `FSP` is the acronym for FullScreenPokemon. If you are playing a different FullScreenShenanigans project, replace `FSM` with the acronym for that game. 
+In this case, `FSP` is the acronym for FullScreenPokemon. If you are playing a different FullScreenShenanigans project, replace `FSP` with the acronym for that game. 
