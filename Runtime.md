@@ -21,7 +21,7 @@ These callbacks separately are referred to as games.
 `upkeepTimed` is a utility function for `upkeep` that times and returns the amount of time it takes to run all the games.
 
 ```typescript
-let totalTime: number = GamesRunner.upkeepTimed();
+const totalTime: number = gamesRunner.upkeepTimed();
 console.log(`It took `${totalTime}` ms.`);
 ```
 
@@ -31,14 +31,14 @@ Each call of `upkeep` has a set time delay, in milliseconds, before it can be ca
 To set the interval use `setInterval`.
 
 ```typescript
-GamesRunner.setInterval(20);
+gamesRunner.setInterval(20);
 ```
 
 `speed` is a variable which represents the playback speed of the intervals, for example a speed of 2 makes the intervals go by twice as fast.
 To set the value, use `setSpeed`.
 
 ```typescript
-GamesRunner.setSpeed(2);
+gamesRunner.setSpeed(2);
 ```
 
 ## Pause and Play
@@ -47,31 +47,31 @@ GamesRunnr can pause and continue `upkeep` execution.
 `pause` stops the execution of `upkeep` and cancels the next call of upkeep.
 
 ```typescript
-GamesRunner.pause();
+gamesRunner.pause();
 ```
 
 `play` continues execution of `upkeep` by calling it.
 
 ```typescript
-GamesRunner.play();
+gamesRunner.play();
 ```
 
 Both `pause` and `play` allow for trigger functions to run when they are called by defining `onPause` and `onPlay`.
 
 ```typescript
-let GamesRunner: IGamesRunnr = new GamesRunnr({
+const gamesRunner: IGamesRunnr = new GamesRunnr({
     games: [() => console.log("example function")],
     onPause: () => console.log("upkeep is paused"),
     onPlay: () => console.log("upkeep is resumed")
 });
-GamesRunner.pause();
-GamesRunner.play();
+gamesRunner.pause();
+gamesRunner.play();
 ```
 
 To toggle between the two, use `togglePause`.
 
 ```typescript
-GamesRunner.togglePause();
+gamesRunner.togglePause();
 ```
 
 More can be read on GamesRunnr on its [Readme](https://github.com/FullScreenShenanigans/GamesRunnr/blob/master/README.md).
@@ -85,13 +85,13 @@ FSPAnalyzr is a module for recording and analyzing framerate measurements.
 `measure` and is run at the end of every `upkeep` call.
 
 ```typescript
-FPSAnalyzer.measure();
+fpsAnalyzer.measure();
 ```
 
 It updates the value for the current timestamp and if there was a previous timestamp recorded, it adds an FPS measurement to the list of recorded measurements with `addFPS`.
 
 ```typescript
-FPSAnalyzer.addFPS(40);
+fpsAnalyzer.addFPS(40);
 ```
 
 ## Getters
@@ -99,14 +99,14 @@ FPSAnalyzer.addFPS(40);
 FPSAnalyzer has a number of getter functions that return statistics and information on the recorded measurements.
 
 ```typescript
-FSPAnalyzer.getNumRecorded();
-FSPAnalyzer.getTicker();
-FPSAnalyzer.getMeasurements();
-FPSAnalyzer.getDifferences();
-FPSAnalyzer.getAverage();
-FPSAnalyzer.getMedian();
-FPSAnalyzer.getExtremes();
-FPSAnalyzer.getRange();
+fpsAnalyzer.getNumRecorded();
+fpsAnalyzer.getTicker();
+fpsAnalyzer.getMeasurements();
+fpsAnalyzer.getDifferences();
+fpsAnalyzer.getAverage();
+fpsAnalyzer.getMedian();
+fpsAnalyzer.getExtremes();
+fpsAnalyzer.getRange();
 ```
 
 More can be read on FPSAnalyzr on its [Readme](https://github.com/FullScreenShenanigans/FPSAnalyzr/blob/master/README.md).
