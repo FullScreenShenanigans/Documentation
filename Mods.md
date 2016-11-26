@@ -18,7 +18,7 @@ When an event is fired in the game, ModAttachr calls the corresponding events of
 A mod can be added with `addMod`.
 
 ```typescript
-ModAttacher.addMod({
+modAttacher.addMod({
     name: "Infinite Health",
     events: {
         "onModEnable": function (mod: ModAttachr.IModAttachrMod): void {
@@ -42,26 +42,26 @@ A mod can be toggled with `toggleMod`.
 
 ```typescript
 // Enables, disables, and toggles the mod.
-ModsAttacher.enableMod("Infinite Health");
-ModsAttacher.disableMod("Infinite Health");
-ModsAttacher.toggleMod("Infinite Health");
+modAttacher.enableMod("Infinite Health");
+modAttacher.disableMod("Infinite Health");
+modAttacher.toggleMod("Infinite Health");
 ```
 
 To fire events use the module's `fireEvent` function.
 
 ```typescript
-// Fires the onBattleStart event for all mods
-ModAttacher.fireEvent("onBattleStart");
+// Fires the onBattleStart event for all mods.
+modAttacher.fireEvent("onBattleStart");
 ```
 
 To fire an event for one mod, use `fireModEvent`.
 
 ```typescript
-ModAttacher.fireModEvent("onBattleStart", "Infinite Health");
+modAttacher.fireModEvent("onBattleStart", "Infinite Health");
 
 // Passing in additional arguments.
-let opponent: IOpponent = new Opponent();
-ModAttacher.fireModEvent("onBattleStart", "Infinite Health", opponent);
+const opponent: IOpponent = new Opponent();
+modAttacher.fireModEvent("onBattleStart", "Infinite Health", opponent);
 ```
 
 More can be read about ModAttachr on its [Readme](https://github.com/FullScreenShenanigans/ModAttachr/blob/master/README.md).
