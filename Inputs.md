@@ -18,13 +18,13 @@ Triggers are what tie inputs with events and are specific actions on the inputs 
 Events can be added using `addEvent` which takes in a trigger name, key code, and the function to run when the event is triggered.
 
 ```typescript
-InputWriter.addEvent("onKeyDown", 37, () => console.log("left button pressed"););
+inputWriter.addEvent("onKeyDown", 37, () => console.log("left button pressed"););
 ```
 
 ...and are removed with `removeEvent` which takes in the trigger and key code.
 
 ```typescript
-InputWriter.removeEvent("onKeyDown", 37);
+inputWriter.removeEvent("onKeyDown", 37);
 ```
 
 Events can be triggered by any number of inputs.
@@ -33,12 +33,12 @@ Aliases are additional inputs that allow for an event to be triggered from multi
 They can be added and removed using `addAliasValues` and `removeAliasValues` which both take in the input and an array of key character codes as arguments.
 
 ```typescript
-InputWriter.addAliasValues("left", [65, 74, 49]); // keys a, j, and 1 respectively 
-InputWriter.removeAliasValues("left", [65, 74, 49]);
+inputWriter.addAliasValues("left", [65, 74, 49]); // keys a, j, and 1 respectively 
+inputWriter.removeAliasValues("left", [65, 74, 49]);
 ```
 
 ```typescript
-let InputWriter: IInputWritr = new InputWritr({
+const inputWriter = new InputWritr({
     "aliases": {
         "left": [65, 37], // a, left button
     },
@@ -56,14 +56,14 @@ To run events, use `callEvent` and `makePipe`.
 `makePipe`  takes in a trigger and code label to get the alias from the event and returns a function to run the triggered event.
 
 ```typescript
-let leftKeyPipe: () => void = InputWritr.makePipe("onKeyDown", "left");
+const leftKeyPipe: () => void = inputWriter.makePipe("onKeyDown", "left");
 leftKeyPipe();
 ```
 
 `callEvent` takes in the event function/trigger and a key code, then directly runs the event.
 
 ```typescript
-InputWriter.callEvent("onKeyDown", "left");
+inputWriter.callEvent("onKeyDown", "left");
 ```
 
 More can be read about InputWritr on its [Readme](https://github.com/FullScreenShenanigans/InputWritr/blob/master/README.md).
@@ -77,8 +77,8 @@ Connected devices are detected and registered with `checkNavigatorGamepads` whic
 of gamepads added.
 
 ```typescript
-let num = DeviceLayer.checkNavigatorGamepapds();
-console.log(${num}` gamepads were added.`);
+const numAdded = deviceLayer.checkNavigatorGamepapds();
+console.log(${numAdded}` gamepads were added.`);
 ```
 
 The inputs for gamepads are joysticks, buttons, and controller triggers.
@@ -90,13 +90,13 @@ Aliases for gamepad triggers are binary signals for whether an active change was
 `activateAllGamepadTriggers` checks the status of all registered gamepads and calls the equivalent InputWritr event if any triggers have occurred.
 
 ```typescript
-DeviceLayer.activateAllGamepadTriggers();
+deviceLayer.activateAllGamepadTriggers();
 ``` 
 
 To clear the status of all joysticks and buttons, use `clearAllGamepadTriggers`.
 
 ```typescript
-DeviceLayer.clearAllGamepadTriggers();
+deviceLayer.clearAllGamepadTriggers();
 ```
 
 More can be read about DeviceLayr on its [Readme](https://github.com/FullScreenShenanigans/DeviceLayr/blob/master/README.md).
