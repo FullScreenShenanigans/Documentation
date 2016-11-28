@@ -25,7 +25,9 @@ The `default` task runs `src`, `lib`, and `test` in order.
 
 ### `setup`
 
-`setup` copies configuration files such as `.gitignore` and typings, and generates `package.json`.
+`setup` copies configuration files, such as `.gitignore` and typings, and generates `package.json`.
+
+If `src/docs/README.md` is included, it will be added to the body of `README.md`.
 
 ### `clean`
 
@@ -68,3 +70,9 @@ Projects that include the `web` task group also process `.html` files, then copy
 
 Projects will first have an `test/index.html` generated from the `index.mustache` in gulp-shenanigans and a `MochaLoader.ts` copied into their `test` directory.
 Test `.ts` files are then compiled and run.
+
+### `docs`
+
+* `docs:typedoc`
+
+`docs` generates HTML documentation under `docs/` based on source file comments.
