@@ -36,7 +36,7 @@ Go to the root repository folder and run the following commands:
 
 You can now play the game by opening lib/index.html in a browser.
 
-See [BuildDetails](https://github.com/FullScreenShenanigans/Documentation/blob/master/BuildDetails.md) for details on build processes.
+See [gulp-shenanigans](https://github.com/FullScreenShenanigans/gulp-shenanigans) for details on build processes.
 
 
 ## Using the Console
