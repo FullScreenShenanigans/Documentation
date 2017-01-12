@@ -1,1 +1,1 @@
-Builds are managed by [https://github.com/FullScreenShenanigans/gulp-shenanigans/](gulp-shenanigans).
+Builds are managed by [gulp-shenanigans](https://github.com/FullScreenShenanigans/gulp-shenanigans/).
