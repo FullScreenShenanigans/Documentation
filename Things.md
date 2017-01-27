@@ -2,7 +2,6 @@
 
 This is a general guide about in-game Things for all FullScreenShenanigans projects.
 
-
 ## Things
 
 Every in-game object in GameStartr games is a Thing.
@@ -16,7 +15,6 @@ Most of the basic properties, like `height`, `width`, and `opacity` are defined 
 ObjectMakr's `make` is a shortcut to initializing a new instance of a Thing class and assigning properties to it in one step.
 
 More can be read on ObjectMakr on its [Readme](https://github.com/FullScreenShenanigans/ObjectMakr/blob/master/README.md).
-
 
 ## Groups
 
@@ -57,7 +55,7 @@ const otherThing = FSP.GroupHolder.getGroup("Solid")[1];
 
 Physics methods are stored under the `physics` member of a GameStartr instance.
 
-#### Shift
+### Shift
 
 You can use the shift functions `shiftVert` and `shiftHoriz`.
 These move the Thing up and down or left and right.
@@ -70,7 +68,7 @@ FSP.physics.shiftVert(thing, 1);
 FSP.physics.shiftHoriz(thing, 1);
 ```
 
-#### Set
+### Set
 
 The `set` functions (`setTop`, `setRight`, `setBottom`, or `setLeft`) moves the Thing to line up with the bounding property.
 
@@ -88,7 +86,7 @@ FSP.physics.setBottom(thing, 10);
 FSP.physics.setRight(thing, 10);
 ```  
 
-#### Midpoints
+### Midpoints
 
 It's possible to set the Thing's midpoint using `setMidX`, `setMidY`, and `setMid` (the latter of which sets both the `x` and `y` midpoints).
 These functions make it so the Thing is centered on the given `x` and `y`.
@@ -117,7 +115,7 @@ FSP.physics.setMidXObj(thing, otherThing);
 FSP.physics.setMidYObj(thing, otherThing);
 ```
 
-#### Slide
+### Slide
 
 `slideToX` or `slideToY` will slide a Thing toward a target `x` or `y`, while limiting the total distance allowed (distance computed from the Thing's original midpoint).
 
