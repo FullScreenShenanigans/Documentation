@@ -7,6 +7,7 @@ These are all TypeScript projects tailored to or built on the GameStartr game en
 # Getting Started
 
 If you're new to JavaScript, read the [Getting Started](https://github.com/FullScreenShenanigans/Documentation/blob/master/Getting%20Started.md) section to learn how to copy the code and run it locally.
+Otherwise skip to [Getting Started#Development](https://github.com/FullScreenShenanigans/Documentation/blob/master/Getting%20Started.md#development).
 
 [gulp-shenanigans](https://github.com/FullScreenShenanigans/gulp-shenanigans) has details on the specific build tasks, while other files detail modules of GameStartr projects.
 
