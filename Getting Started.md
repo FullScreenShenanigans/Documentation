@@ -1,10 +1,5 @@
 This is the general getting started guide for all FullScreenShenanigans projects. The guide will show you how to download and run any FullScreenShenanigans game as well as teach you about how to use the console to interact with the game.
 
-### Table of Contents
-
-1. [Obtaining the Source Code](#obtaining-the-source-code)
-2. [Build Process](#build-process)
-3. [Using the Console](#using-the-console)
 
 ## Obtaining the Source Code
 

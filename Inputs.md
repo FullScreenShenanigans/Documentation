@@ -1,11 +1,5 @@
 This guide will describe how inputs from the user (keyboard, mouse, etc.) are routed through InputWritr and how the DeviceLayr Gamepad can be used on top of it.
 
-### Table of Contents
-1. [InputWritr](#inputwritr)
-    1. [Events and Triggers](#events-and-triggers)
-    2. [Running Events](#running-events)
-2. [DeviceLayr](#devicelayr)
-
 # InputWritr
 
 ## Events and Triggers
@@ -17,13 +11,13 @@ Triggers are what tie inputs with events and are specific actions on the inputs 
 
 Events can be added using `addEvent` which takes in a trigger name, key code, and the function to run when the event is triggered.
 
-```typescript
+```javascript
 inputWriter.addEvent("onKeyDown", 37, () => console.log("left button pressed"););
 ```
 
-...and are removed with `removeEvent` which takes in the trigger and key code.
+Events can be removed with `removeEvent`, which takes in the trigger and key code.
 
-```typescript
+```javascript
 inputWriter.removeEvent("onKeyDown", 37);
 ```
 
@@ -32,12 +26,12 @@ Events can be triggered by any number of inputs.
 Aliases are additional inputs that allow for an event to be triggered from multiple user sources.
 They can be added and removed using `addAliasValues` and `removeAliasValues` which both take in the input and an array of key character codes as arguments.
 
-```typescript
+```javascript
 inputWriter.addAliasValues("left", [65, 74, 49]); // keys a, j, and 1 respectively 
 inputWriter.removeAliasValues("left", [65, 74, 49]);
 ```
 
-```typescript
+```javascript
 const inputWriter = new InputWritr({
     "aliases": {
         "left": [65, 37], // a, left button
@@ -55,14 +49,14 @@ const inputWriter = new InputWritr({
 To run events, use `callEvent` and `makePipe`.
 `makePipe`  takes in a trigger and code label to get the alias from the event and returns a function to run the triggered event.
 
-```typescript
+```javascript
 const leftKeyPipe: () => void = inputWriter.makePipe("onKeyDown", "left");
 leftKeyPipe();
 ```
 
 `callEvent` takes in the event function/trigger and a key code, then directly runs the event.
 
-```typescript
+```javascript
 inputWriter.callEvent("onKeyDown", "left");
 ```
 
@@ -76,7 +70,7 @@ DeviceLayr has its own input and trigger mappings in addition to the mappings fo
 Connected devices are detected and registered with `checkNavigatorGamepads` which automatically adds them to the list of added gamepads once called and returns the number
 of gamepads added.
 
-```typescript
+```javascript
 const numAdded = deviceLayer.checkNavigatorGamepapds();
 console.log(${numAdded}` gamepads were added.`);
 ```
@@ -89,13 +83,13 @@ Aliases for gamepad triggers are binary signals for whether an active change was
 
 `activateAllGamepadTriggers` checks the status of all registered gamepads and calls the equivalent InputWritr event if any triggers have occurred.
 
-```typescript
+```javascript
 deviceLayer.activateAllGamepadTriggers();
 ``` 
 
 To clear the status of all joysticks and buttons, use `clearAllGamepadTriggers`.
 
-```typescript
+```javascript
 deviceLayer.clearAllGamepadTriggers();
 ```
 
