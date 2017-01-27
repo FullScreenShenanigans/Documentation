@@ -21,4 +21,4 @@ It uses about two dozen other FullScreenShenanigans projects as modules.
 The FullScreenMario project started October 21st, 2012 and had a beta release in October 2013.
 [FullScreenMario.com](http://www.fullscreenmario.com) received approximately 2.68 million unique visitors within a month, after which Nintendo shut the site down with a DMCA complaint (no action was taken against the authors, GitHub, or other hosting websites).
 
-The FullScreenPokemon project started in October of 2015 during the refactor and had an April Fools Day joke release in 2015.
+The FullScreenPokemon project started in October of 2014 during the refactor after an April Fools Day joke release that year.
