@@ -7,7 +7,7 @@ In this lingo:
 
 ## Instantiation
 
-`EightBittr` provides a public `reset` called during the constructor that, in (coincidentally alphabetical) order, resets _c_omponents, _e_lements, and _m_odules.
+`EightBittr` provides a public `reset` called during the constructor that, in (coincidentally alphabetical) order, resets *c*omponents, *e*lements, and *m*odules.
 This order allows resetting elements to use the built-int `Utility` component and for modules to take in components or elements.
 
 ### Best Practices
