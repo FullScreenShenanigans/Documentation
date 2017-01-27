@@ -3,20 +3,14 @@ This is the general getting started guide for all FullScreenShenanigans projects
 
 ## Obtaining the Source Code
 
-All FullScreenShenanigans projects are within the FullScreenShenanigans organization on GitHub. For example, FullScreenPokemon is available at https://github.com/FullScreenShenanigans/FullScreenPokemon 
+All FullScreenShenanigans projects are within the FullScreenShenanigans organization on GitHub.
+For example, FullScreenPokemon is available at https://github.com/FullScreenShenanigans/FullScreenPokemon.
 
-In order to play a game, you need to use one of the two following methods to obtain the source code:
+Use Git to clone the repository from GitHub:
 
-### Clone the project repository using GitHub:
 1. If you don't already have Git installed on your computer, go to [this page](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and follow the instructions to download and install Git.
 2. Follow [these directions](https://help.github.com/articles/cloning-a-repository/) to clone the repository.
 3. See [Build Process](#build-process) to see how to build and play the game.
-
-### Download the latest release .zip of the project:
-1. Go to the GitHub page of your desired game.
-2. Click the `Download ZIP` button found on the right side of the page.
-3. Extract the .zip into a directory of your choice.
-4. Open Source/index.html in a browser (preferably Google Chrome).
 
 
 ## Build Process
@@ -24,25 +18,38 @@ In order to play a game, you need to use one of the two following methods to obt
 FullScreenShenanigans projects use [Gulp](http://gulpjs.com/) to build, which requires you to [download and install Node.js](http://nodejs.org) first.
 
 Go to the root repository folder and run the following commands:
-    
-    npm install -g gulp
-    npm install
-    gulp
 
-You can now play the game by opening lib/index.html in a browser.
+```cmd
+npm install -g gulp
+npm install
+gulp
+```
+
+You can now play the game by opening src/index.html in a browser.
 
 See [gulp-shenanigans](https://github.com/FullScreenShenanigans/gulp-shenanigans) for details on build processes.
 
+### Using the Console
 
-## Using the Console
-You can use the console of the F12 Developer Tools to interact with the game. Open the console by using the `Ctrl+Shift+J` short on Windows or `Cmd+Opt+J` on Mac. In order to use the console, enter a command and press `Enter`. A few examples of console use when playing FullScreenPokemon are pausing the game
+You can use your browser's developer tools to interact with the game.
+FullScreenShenanigans projects store their game instances globally with an acronym for the project title.
 
 ```javascript
-FSP.GamesRunner.pause();
-```
-and unpausing the game
-```javascript
-FSP.GamesRunner.play();
+FSP.gamesRunner.pause();
+setTimeout(() => FSP.gamesRunner.play(), 1000);
 ```
 
-In this case, `FSP` is the acronym for FullScreenPokemon. If you are playing a different FullScreenShenanigans project, replace `FSP` with the acronym for that game. 
+In this case, `FSP` is the acronym for FullScreenPokemon.
+
+
+## Development
+
+There's no definitive guide through the documentation yet.
+For now, read through guides in this order:
+
+1. [Components and Modules](https://github.com/FullScreenShenanigans/Documentation/blob/master/Components%20and%20Modules.md)
+2. [Things](https://github.com/FullScreenShenanigans/Documentation/blob/master/Things.md)
+3. [Inputs](https://github.com/FullScreenShenanigans/Documentation/blob/master/Inputs.md)
+4. [Runtime](https://github.com/FullScreenShenanigans/Documentation/blob/master/Runtime.md)
+5. [Events](https://github.com/FullScreenShenanigans/Documentation/blob/master/Events.md)
+7. Any remaining guides in any order.
