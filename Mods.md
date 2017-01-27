@@ -1,10 +1,5 @@
 This guide will describe how mods and their triggers attach to FullScreenShenanigans projects.
 
-### Table of Contents
-1. [ModAttachr](#modattachr)
-    1. [Adding Mods](#adding-mods)
-    2. [Event Hooks](#event-hooks)
-
 # ModAttachr
 
 ModAttachr is a module that allows for extensible triggered mod events.
@@ -17,17 +12,17 @@ When an event is fired in the game, ModAttachr calls the corresponding events of
 
 A mod can be added with `addMod`.
 
-```typescript
+```javascript
 modAttacher.addMod({
     name: "Infinite Health",
     events: {
-        "onModEnable": function (mod: ModAttachr.IModAttachrMod): void {
+        "onModEnable": () => {
             // event code when the mod is enabled
         },
-        "onModDisable": function (mod: ModAttachr.IModAttachrMod): void {
+        "onModDisable": () => {
             // event code when the mod is disabled
         },
-        "onBattleStart": function (mod: ModAttachr.IModAttachrMod, opponent: IOpponent): void {
+        "onBattleStart": () => {
             // event code when a battle starts
         }
     },
@@ -40,7 +35,7 @@ modAttacher.addMod({
 When a mod is enabled, its `onModEnable` event is called; when a mod is disabled, its `onModDisable` event is called.
 A mod can be toggled with `toggleMod`.
 
-```typescript
+```javascript
 // Enables, disables, and toggles the mod.
 modAttacher.enableMod("Infinite Health");
 modAttacher.disableMod("Infinite Health");
@@ -49,18 +44,18 @@ modAttacher.toggleMod("Infinite Health");
 
 To fire events use the module's `fireEvent` function.
 
-```typescript
+```javascript
 // Fires the onBattleStart event for all mods.
 modAttacher.fireEvent("onBattleStart");
 ```
 
 To fire an event for one mod, use `fireModEvent`.
 
-```typescript
+```javascript
 modAttacher.fireModEvent("onBattleStart", "Infinite Health");
 
 // Passing in additional arguments.
-const opponent: IOpponent = new Opponent();
+const opponent = new Opponent();
 modAttacher.fireModEvent("onBattleStart", "Infinite Health", opponent);
 ```
 
