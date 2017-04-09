@@ -1,5 +1,5 @@
 Builds are managed by [gulp-shenanigans](https://github.com/FullScreenShenanigans/gulp-shenanigans/).
-See the documentation there for how to build, test, and run individual projects.
+See the [#Builds documentation](https://github.com/FullScreenShenanigans/gulp-shenanigans/blob/master/README.md#builds) there for how to build, test, and run individual projects.
 
 ## Referencing module updates locally
 
