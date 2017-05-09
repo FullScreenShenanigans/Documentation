@@ -3,19 +3,14 @@
 This is the central repository for tutorials and instructions on FullScreenShenanigans projects.
 These are all TypeScript projects tailored to or built on the GameStartr game engine.
 
-
-# Getting Started
-
-If you're new to JavaScript, read the [Development](https://github.com/FullScreenShenanigans/Documentation/blob/master/Development.md) section to learn how to get the projects and run them locally.
-Otherwise skip to [Getting Started#Tutorials](https://github.com/FullScreenShenanigans/Documentation/blob/master/Getting%20Started.md#tutorials).
-
-[gulp-shenanigans](https://github.com/FullScreenShenanigans/gulp-shenanigans) has details on the specific build tasks, while other files detail modules of GameStartr projects.
-
-
-## GameStartr
-
-GameStartr is a TypeScript game engine used as a base for creating sprite-based 2D games, particularly retro remakes such as FullScreenPokemon.
+**GameStartr** is a TypeScript game engine used as a base for creating sprite-based 2D games, particularly retro remakes such as FullScreenPokemon.
 It uses about two dozen other FullScreenShenanigans projects as modules.
+
+
+## Getting Started
+
+First follow the [Development](https://github.com/FullScreenShenanigans/Documentation/blob/master/Development.md) section to learn how to get the projects and run them locally.
+Then read [Getting Started#Tutorials](https://github.com/FullScreenShenanigans/Documentation/blob/master/Getting%20Started.md#tutorials).
 
 
 ## History
