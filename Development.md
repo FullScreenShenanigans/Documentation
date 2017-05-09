@@ -15,7 +15,7 @@ It's recommended to use [Visual Studio Code](https://code.visualstudio.com/) as 
 
 ### `shenanigans-manager`
 
-Use `shenanigans-manager`'s `complete-setup` command to set up a directory with all the relevant FullScreenShenanigans projects linked to each other.
+`shenanigans-manager`'s `complete-setup` command sets up a directory with all the relevant FullScreenShenanigans projects.
 
 Using a shell / command prompt with administrative privileges:
 
@@ -24,8 +24,8 @@ npm install -g shenanigans-manager gulp
 shenanigans-manager complete-setup --directory C:/Code/Shenanigans
 ```
 
-After this, all the repositories will be fully built.
-Their `node_modules` dependencies will by symbolically linked to each other.
+After this, all the repositories will be cloned and fully built.
+Their `node_modules` dependencies will be symlinked to each other.
 
 You can launch Code in a project by starting it on the command-line and passing it a directory.
 
@@ -48,9 +48,13 @@ This will trigger incremental compilation whenever a source file changes.
 
 ### `src` and `test`
 
-The `tsconfig.json` for files under `/src` is located in the root of the project, but a different one exists at `/test/tsconfig.json` for test files.
-The two directories have separate build steps and will both output compiled files next to their source equivalents.
+The root `/tsconfig.json` is used for files under `/src`.
+A different one exists at `/test/tsconfig.json` for test files.
+The two directories will both output compiled files next to their source equivalents and have separate build steps.
+
+### Testing
 
 You can run tests using `gulp test` or by opening `/test/index.html` in a browser.
+If you add, remove, or rename a test file, you'll need to run `gulp setup` to re-initialize the test harness.
 
 See the [`gulp-shenanigans` documentation](https://github.com/FullScreenShenanigans/gulp-shenanigans/blob/master/README.md#builds) for details on how to build, test, and run individual projects.
