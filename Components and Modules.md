@@ -22,7 +22,7 @@ They all contain a `.gameStarter` reference to their parent GameStartr, and may 
 
 The `GameStartr` class comes with a few built-in components for core engine features, such as `Graphics`, `Maps`, and `Physics`.
 
-You can implement your own compoents by subclassing `Component`.
+You can implement your own components by subclassing `Component`.
 
 ```typescript
 import { Component } from "eightbittr/lib/Component";
