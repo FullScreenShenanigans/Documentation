@@ -51,6 +51,8 @@ Names are sorted within groups by last name. Groups are in order of commit magni
     * May 2016:
         * Mods: [Repeat trainers](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/262), [Scaling levels](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/265)
         * [Bug fix for scaling large health bars](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/267)
+    * Septermber 2016:
+        * [Scaling Levels and Mobile Pokemon Center mods](https://github.com/FullScreenShenanigans/FullScreenPokemon/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Ablingenau%20scaling%20OR%20mobile)
 
 * [George Tsitsopoulos](https://github.com/tsitsop)
     * February 2016:
