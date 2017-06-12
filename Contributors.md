@@ -9,6 +9,11 @@ Names are sorted within groups by last name. Groups are in order of commit magni
 
 ### [RCOS](https://rcos.io/projects/JoshuaKGoldberg/FullScreenPokemon/profile) RPI Students
 
+* [Jose Guvenilir](https://github.com/guvjose)
+    * September 2016:
+        * ['Z' starter selection bug](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/337)
+    * October 2016:
+        * [Quick Attack, Sand Attack, and Gust animations](https://github.com/FullScreenShenanigans/FullScreenPokemon/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Aguvjose%20animation)
 * [Graigor Pierre-Noel](https://github.com/gpnoel)
     * May 2016:
         * [Fixed FSP walking during ledge hops and after battles](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/272)
@@ -56,6 +61,8 @@ Names are sorted within groups by last name. Groups are in order of commit magni
         * Mods: [Level 100 Pokemon](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/239), [Walking through walls](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/250)
     * May 2016:
         * Mods: [Nuzlocke Challenge](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/256), [Infinite Repel](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/260)
+    * September 2016:
+        * [Ember and Bubble animations](https://github.com/FullScreenShenanigans/FullScreenPokemon/pulls?q=is%3Apr+ember+OR+bubble+is%3Aclosed)
 
 ### RPI Students
 
