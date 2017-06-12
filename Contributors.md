@@ -32,6 +32,12 @@ Names are sorted within groups by last name. Groups are in order of commit magni
         * Code style improvements: [thing.FSP scoping](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/285), [for..of over for;;](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/286), [thingsById as a GroupHoldr group](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/290)
         * [AudioPlayr unit tests](https://github.com/FullScreenShenanigans/AudioPlayr/pull/7/files)
 
+* [Colin Higgins](https://github.com/ColinEHiggins)
+    * October 2016:
+        * [Corrected menus textPaddingRight](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/335)
+    * November 2016:
+        * [Ice Beam and Surf animations](https://github.com/fullscreenshenanigans/fullscreenpokemon/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3AColinEHiggins%20animation)
+
 * [Blake Lingenau](https://github.com/blingenau)
     * February 2016:
         * [Added FSP function documentation](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/136)
