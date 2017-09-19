@@ -1,39 +1,28 @@
 # Development
 
-Development on projects under the FullScreenShenanigans organization is generally managed by two packages:
-* **[`shenanigans-manager`](https://github.com/FullScreenShenanigans/shenanigans-manager)** sets up your computer with cloned packages pointing to each other.
-* **[`gulp-shenanigans`](https://github.com/FullScreenShenanigans/gulp-shenanigans)** provides [Gulp](http://gulpjs.com/) build tasks for each package.
-
-## Initial Setup
-
-First, install the prerequisite software:
+First install the prerequisite software:
 * [Node.js](http://node.js.org)
 * [Git](https://git-scm.com/downloads)
 
 It's recommended to use [Visual Studio Code](https://code.visualstudio.com/) as your editor with the [TSLint extension](https://marketplace.visualstudio.com/items?itemName=eg2.tslint) installed.
 
 
-### `shenanigans-manager`
+## Initial Setup
 
-`shenanigans-manager`'s `complete-setup` command sets up a directory with all the relevant FullScreenShenanigans projects.
+To work on an individual repository, [fork that repository](https://help.github.com/articles/fork-a-repo/) and clone it to your computer.
 
-Using a shell / command prompt with administrative privileges:
-
-```shell
-npm install -g shenanigans-manager gulp
-shenanigans-manager complete-setup --directory C:/Code/Shenanigans
+```cmd
+git clone https://github.com/<your-github-username-here>/<project-you-forked>
 ```
 
-After this, all the repositories will be cloned and fully built.
-Their `node_modules` dependencies will be symlinked to each other.
+Navigate to that directory in a terminal/shell and run the following commands to initialize the repository for development.
 
-You can launch Code in a project by starting it on the command-line and passing it a directory.
-
-```shell
-code C:/Code/Shenanigans/AreaSpawnr
+```cmd
+npm install
+gulp setup
+gulp
 ```
 
-See the [`shenanigans-manager` documentation](https://github.com/FullScreenShenanigans/shenanigans-manager) for details on the available commands.
 
 ## Building
 
@@ -58,3 +47,23 @@ You can run tests using `gulp test` or by opening `/test/index.html` in a browse
 If you add, remove, or rename a test file, you'll need to run `gulp setup` to re-initialize the test harness.
 
 See the [`gulp-shenanigans` documentation](https://github.com/FullScreenShenanigans/gulp-shenanigans/blob/master/README.md#builds) for details on how to build, test, and run individual projects.
+
+
+## `shenanigans-manager`
+
+If you're working across multiple repositories under the FullScreenShenanigans organization, use the `shenanigans-manager` utility.
+Passing `complete-setup` command to it can set up all repositories locally with node modules symlinked to each other.
+
+For each forked project, pass `--fork repository=organization`.
+
+Using a shell / command prompt with administrative privileges:
+
+```shell
+npm install -g shenanigans-manager gulp
+shenanigans-manager complete-setup --directory C:/Code/Shenanigans --fork fullscreenpokemon=username
+```
+
+After this, all the repositories will be cloned and fully built.
+Their `node_modules` dependencies will be symlinked to each other.
+
+See the [`shenanigans-manager` documentation](https://github.com/FullScreenShenanigans/shenanigans-manager) for details on the available commands.
