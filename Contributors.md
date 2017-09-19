@@ -9,6 +9,13 @@ Names are sorted within groups by last name. Groups are in order of commit magni
 
 ### [RCOS](https://rcos.io/projects/JoshuaKGoldberg/FullScreenPokemon/profile) RPI Students
 
+* [Connor Hadley](https://github.com/syo)
+    * February 2017:
+        * [ModAttachr and FSP event names](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/424)
+    * March 2017:
+        * [Pokemon evolution scaffolding](https://github.com/fullscreenshenanigans/fullscreenpokemon/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Asyo%20%20evolution)
+    * April 2017:
+        * [Trade and item evolution scaffolding](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/456)
 * [Jose Guvenilir](https://github.com/guvjose)
     * September 2016:
         * ['Z' starter selection bug](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/337)
