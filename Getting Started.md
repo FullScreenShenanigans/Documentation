@@ -1,9 +1,9 @@
 This is the general getting started guide for all FullScreenShenanigans projects. The guide will show you how to download and run any FullScreenShenanigans game as well as teach you about how to use the console to interact with the game.
 
 
-## Development
+### Development
 
-First set up your system using the steps in [Development](https://github.com/FullScreenShenanigans/Documentation/blob/master/Things.md).
+First set up your system using the steps in [Development](https://github.com/FullScreenShenanigans/Documentation/blob/master/Development.md).
 
 
 ## Using the Console

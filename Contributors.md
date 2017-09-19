@@ -9,6 +9,11 @@ Names are sorted within groups by last name. Groups are in order of commit magni
 
 ### [RCOS](https://rcos.io/projects/JoshuaKGoldberg/FullScreenPokemon/profile) RPI Students
 
+* [Jose Guvenilir](https://github.com/guvjose)
+    * September 2016:
+        * ['Z' starter selection bug](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/337)
+    * October 2016:
+        * [Quick Attack, Sand Attack, and Gust animations](https://github.com/FullScreenShenanigans/FullScreenPokemon/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Aguvjose%20animation)
 * [Graigor Pierre-Noel](https://github.com/gpnoel)
     * May 2016:
         * [Fixed FSP walking during ledge hops and after battles](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/272)
@@ -27,6 +32,12 @@ Names are sorted within groups by last name. Groups are in order of commit magni
         * Code style improvements: [thing.FSP scoping](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/285), [for..of over for;;](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/286), [thingsById as a GroupHoldr group](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/290)
         * [AudioPlayr unit tests](https://github.com/FullScreenShenanigans/AudioPlayr/pull/7/files)
 
+* [Colin Higgins](https://github.com/ColinEHiggins)
+    * October 2016:
+        * [Corrected menus textPaddingRight](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/335)
+    * November 2016:
+        * [Ice Beam and Surf animations](https://github.com/fullscreenshenanigans/fullscreenpokemon/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3AColinEHiggins%20animation)
+
 * [Blake Lingenau](https://github.com/blingenau)
     * February 2016:
         * [Added FSP function documentation](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/136)
@@ -40,6 +51,8 @@ Names are sorted within groups by last name. Groups are in order of commit magni
     * May 2016:
         * Mods: [Repeat trainers](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/262), [Scaling levels](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/265)
         * [Bug fix for scaling large health bars](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/267)
+    * Septermber 2016:
+        * [Scaling Levels and Mobile Pokemon Center mods](https://github.com/FullScreenShenanigans/FullScreenPokemon/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Ablingenau%20scaling%20OR%20mobile)
 
 * [George Tsitsopoulos](https://github.com/tsitsop)
     * February 2016:
@@ -56,6 +69,8 @@ Names are sorted within groups by last name. Groups are in order of commit magni
         * Mods: [Level 100 Pokemon](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/239), [Walking through walls](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/250)
     * May 2016:
         * Mods: [Nuzlocke Challenge](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/256), [Infinite Repel](https://github.com/FullScreenShenanigans/FullScreenPokemon/pull/260)
+    * September 2016:
+        * [Ember and Bubble animations](https://github.com/FullScreenShenanigans/FullScreenPokemon/pulls?q=is%3Apr+ember+OR+bubble+is%3Aclosed)
 
 ### RPI Students
 
